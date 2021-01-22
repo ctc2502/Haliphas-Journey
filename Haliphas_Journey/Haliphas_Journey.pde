@@ -1,11 +1,45 @@
 
+//PImage Halipha;
+Halipha halipha;
+PImage Halipha;
+
 
 void setup(){
 size(1000,1000);
-rect(20,900,900,50);
+Halipha = loadImage("Halipha.png");
+halipha = new Halipha();
 
 }
 
-void draw(){
+void keyPressed() {
+  if (key == ' ') {
+    halipha.jump();
+  }
+  if (key == ' ') {
+    halipha.move();
+  }
+  if (key == ' ') {
+    halipha.move();
+  }
+  if (key == ' ') {
+    halipha.move();
+  }
+  if (key == ' ') {
+    halipha.move();
+  }
+}
 
+void draw(){
+ clear();
+ background(244,200,189);
+  
+
+
+
+
+  
+  
+  halipha.show();
+  halipha.Gravitation();
+ 
 }
