@@ -9,24 +9,20 @@ size(1000,1000);
 Halipha = loadImage("Halipha.png");
 halipha = new Halipha();
 
+
 }
 
 void keyPressed() {
   if (key == ' ') {
     halipha.jump();
   }
-  if (key == ' ') {
+  if (key == 'a') {
     halipha.move();
   }
-  if (key == ' ') {
+  if (key == 'd') {
     halipha.move();
   }
-  if (key == ' ') {
-    halipha.move();
-  }
-  if (key == ' ') {
-    halipha.move();
-  }
+ 
 }
 
 void draw(){
