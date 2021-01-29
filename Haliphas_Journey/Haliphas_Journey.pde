@@ -6,7 +6,7 @@ PImage Halipha;
 
 void setup(){
 size(1000,1000);
-Halipha = loadImage("Halipha.png");
+Halipha = loadImage("DefaultR.png");
 halipha = new Halipha();
 
 
