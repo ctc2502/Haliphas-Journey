@@ -22,10 +22,12 @@ void Gravitation () {
     vy += tyngdekraften;
     y = constrain(y, 0, height - r);
   }
-  void move () {
-    
+  void moveleft () {
+    x=x-5;
   }
-
+void moveright () {
+    x=x+5;
+  }
   void show() {
     image(Halipha, x, y, r, r);
      

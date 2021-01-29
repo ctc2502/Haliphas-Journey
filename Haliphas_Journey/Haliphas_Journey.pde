@@ -5,8 +5,15 @@ PImage Halipha;
 
 
 void setup(){
+<<<<<<< HEAD
 size(1000,1000);
 Halipha = loadImage("DefaultR.png");
+=======
+//size(1000,1000);
+  
+fullScreen();
+Halipha = loadImage("Halipha.png");
+>>>>>>> a04836e99d5ac79b2b29a3e0309428cd15028f6e
 halipha = new Halipha();
 
 
@@ -17,10 +24,10 @@ void keyPressed() {
     halipha.jump();
   }
   if (key == 'a') {
-    halipha.move();
+    halipha.moveleft();
   }
   if (key == 'd') {
-    halipha.move();
+    halipha.moveright();
   }
  
 }
