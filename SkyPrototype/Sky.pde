@@ -19,12 +19,11 @@ class Sky {
       pos.x = random(placement.x-100, placement.x+100);
       //speed.y = random(4, 10);
     }
-    show();
+    stroke(0);
+    line(pos.x, pos.y, pos.x, pos.y+len.y);
   }
   
   void show() {
-    stroke(0);
-    line(pos.x, pos.y, pos.x, pos.y+len.y);
     image(cloud0, placement.x, placement.y);
   }
   

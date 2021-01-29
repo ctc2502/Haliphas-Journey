@@ -13,7 +13,8 @@ void setup(){
   
 void draw(){
   background(230, 230, 250);
-  for (int i = 0; i < S.length; i++) {
+    for (int i = 0; i < S.length; i++) {
     S[i].fall();
-  }
+    }
+  S[0].show();
 }
