@@ -8,13 +8,14 @@ class Sky {
   Sky() {
   }
   
-  void fall() {
+  void rain() {
     pos.y  = pos.y + speed.y;
     //speed.y = speed.y + 0.2;
     //placement.y = mouseY;
     //placement.x = mouseX; 
     movement(500, 600);
     float d = dist(pos.x, pos.y, pos.x, height); 
+    println(d);
     if (d < 5) { 
       pos.y = placement.y+20;
       pos.x = random(placement.x-100, placement.x+100);

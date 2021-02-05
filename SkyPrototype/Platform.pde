@@ -13,6 +13,6 @@ class Platform extends Sky {
   
   void display(){
     rect(mouseX, mouseY, w, h);
-      println(dist(x, y, pos.x, pos.y));
+      
   }
 }
