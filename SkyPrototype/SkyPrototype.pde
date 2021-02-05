@@ -1,4 +1,5 @@
 Sky[] S = new Sky[100];
+Platform P = new Platform(500, 500, 500, 100);
 
 PImage cloud0;
 
@@ -9,6 +10,8 @@ void setup(){
   for (int i = 0; i < S.length; i++) {
     S[i] = new Sky();
   }
+  for (Sky S : Sky) {
+  }
 }
   
 void draw(){
@@ -17,4 +20,7 @@ void draw(){
     S[i].fall();
     }
   S[0].show();
+  P.display();
+  P.collision(); 
+
 }

@@ -14,10 +14,11 @@ class Sky {
     //placement.y = mouseY;
     //placement.x = mouseX; 
     movement(500, 600);
-    if (pos.y > height) {
+    float d = dist(pos.x, pos.y, pos.x, height); 
+    if (d < 5) { 
       pos.y = placement.y+20;
       pos.x = random(placement.x-100, placement.x+100);
-      //speed.y = random(4, 10);
+      speed.y = random(4, 10);
     }
     stroke(0);
     line(pos.x, pos.y, pos.x, pos.y+len.y);
