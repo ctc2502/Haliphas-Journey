@@ -9,6 +9,7 @@ Player player;
 PImage Halipha;
 
 boolean dir;
+//Halipha version 2.0
 
 void setup(){
 Halipha = loadImage("DefaultR.png");
