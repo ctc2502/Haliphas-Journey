@@ -15,10 +15,10 @@ class Player {
 
   
   void show() {
-      PImage walk = Walk[frameCount%7];
-      if (walk != null) {
-      image(walk, xpos, ypos, r, r);
-      } 
+      //PImage walk = Walk[frameCount%7];
+      //if (walk != null) {
+      image(Halipha, xpos, ypos, r, r);
+      //} 
      //drive();
      //fill(255, 50);
     // ellipseMode(CORNER);

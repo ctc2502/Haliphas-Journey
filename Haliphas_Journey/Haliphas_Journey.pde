@@ -24,16 +24,16 @@ player = new Player(0, 870, 10);
 velocityconst = -8.0;
 velocity = velocityconst;
 
-for (int i = 0; i < Walk.length; i++) {
+/*for (int i = 0; i < Walk.length; i++) {
     Walk[i] = loadImage( "Walk" + i + "R.gif");
   }
-  
+  */
 }
 
 void draw(){
  clear();
  background(244,200,189);
- //image(Baggrund01, 0, 0);
+ image(Baggrund01, 0, 0);
  println(newletter, " ", jump);
     if(newletter == true) {
       player.drive(direction);
