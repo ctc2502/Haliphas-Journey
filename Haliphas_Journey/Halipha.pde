@@ -15,7 +15,10 @@ class Player {
 
   
   void show() {
-    image(Halipha, xpos, ypos, r, r);
+      PImage walk = Walk[frameCount%7];
+      if (walk != null) {
+      image(walk, xpos, ypos, r, r);
+      } 
      //drive();
      //fill(255, 50);
     // ellipseMode(CORNER);
@@ -35,10 +38,10 @@ class Player {
         }
     }
     
-    void jump() {
+    void jump(int jreq) {
         velocity = velocity + 0.5;
-        if(ypos + velocity > (height/2)) {
-            ypos = height/2;
+        if(ypos + velocity > (jreq)) {
+            ypos = jreq;
             jump = false;
             velocity = velocityconst;
         } else {
