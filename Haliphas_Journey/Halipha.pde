@@ -14,8 +14,17 @@ class Player {
   }
 
   void movement() {
-    
-  
+    if(key == 'A' || key == 'a') {
+        direction = false;
+        shift = true; 
+    } else if (key == 'D' || key == 'd') {
+        direction = true;
+        shift = true;
+    }
+
+    if (key == 'W' || key == 'w') {
+        jump = true;
+    } 
   }
   
   void show() {
@@ -27,6 +36,13 @@ class Player {
      //fill(255, 50);
     // ellipseMode(CORNER);
    //  ellipse(x, y, r, r);
+   
+       if(shift == true) {
+      player.drive(direction);
+    }
+    if(jump == true) {
+        player.jump(870);
+    }
   }
   
   void drive(boolean dir) {
@@ -51,5 +67,11 @@ class Player {
         } else {
             ypos += velocity;
         }
+    }
+    
+    void releaz() {
+      if (key == 'A' || key == 'a' || key == 'D' || key == 'd') {
+        shift = false;
+      }
     }
 }

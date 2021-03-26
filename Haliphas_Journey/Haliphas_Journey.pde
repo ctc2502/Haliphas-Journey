@@ -1,4 +1,4 @@
-int Phase;
+int Phase = 0;
 
 boolean shift;
 boolean direction;
@@ -8,7 +8,7 @@ float velocityconst;
 Player player;
 
 //PImage Halipha;
-PImage Baggrund01;
+PImage Baggrund00, Baggrund01;
 PImage Halipha;
 PImage[] Walk = new PImage[7];
 
@@ -17,9 +17,13 @@ boolean dir;
 
 void setup(){
 Halipha = loadImage("DefaultR.png");
+
+Baggrund00 = loadImage("Bruddas.png");
+Baggrund00.resize(width, height);
+
 Baggrund01 = loadImage("baggrund færdig.png");
 Baggrund01.resize(width, height);
-//size(1000,1000);
+//size(1000,1000); 
   
 fullScreen();
 player = new Player(0, 870, 10);
@@ -37,14 +41,7 @@ void draw(){
  background(244,200,189);
  image(Baggrund01, 0, 0);
  println(shift, " ", jump);
-    if(shift == true) {
-      player.drive(direction);
-    }
-    if(jump == true) {
-        player.jump(870);
-    }
-
-    player.show();
+    
     
     switch(Phase) {
   case -6:
@@ -68,9 +65,13 @@ void draw(){
     break;
   default:
     //kode
+    image(Baggrund00, 0, 0);
     break;  
   case 1:
     //kode
+    image(Baggrund01, 0, 0);
+    println(shift, " ", jump);
+    player.show();
     break;  
   case 2:
     //kode
@@ -83,21 +84,9 @@ void draw(){
 
 void keyPressed()
 {
-    if(key == 'A' || key == 'a') {
-        direction = false;
-        shift = true; 
-    } else if (key == 'D' || key == 'd') {
-        direction = true;
-        shift = true;
-    }
-
-    if (key == 'W' || key == 'w') {
-        jump = true;
-    }  
+    player.movement(); 
 }
 
 void keyReleased(){  
-  if (key == 'A' || key == 'a' || key == 'D' || key == 'd') {
-        shift = false;
-    }
+  player.releaz();
 }
