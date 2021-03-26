@@ -1,4 +1,6 @@
-boolean newletter;
+int Phase;
+
+boolean shift;
 boolean direction;
 boolean jump;
 float velocity;
@@ -34,8 +36,8 @@ void draw(){
  clear();
  background(244,200,189);
  image(Baggrund01, 0, 0);
- println(newletter, " ", jump);
-    if(newletter == true) {
+ println(shift, " ", jump);
+    if(shift == true) {
       player.drive(direction);
     }
     if(jump == true) {
@@ -43,16 +45,50 @@ void draw(){
     }
 
     player.show();
+    
+    switch(Phase) {
+  case -6:
+    //kode
+    break;
+  case -5:
+    //kode
+    break;
+  case -4: 
+    //kode
+    break;
+  case -3:
+    //kode
+    break;
+  case -2:
+    //kode
+    break;
+  case -1:
+    //kode
+    
+    break;
+  default:
+    //kode
+    break;  
+  case 1:
+    //kode
+    break;  
+  case 2:
+    //kode
+    break;
+  case 3:
+    //kode
+    break;
+  }
 }
 
 void keyPressed()
 {
     if(key == 'A' || key == 'a') {
         direction = false;
-        newletter = true; 
+        shift = true; 
     } else if (key == 'D' || key == 'd') {
         direction = true;
-        newletter = true;
+        shift = true;
     }
 
     if (key == 'W' || key == 'w') {
@@ -62,6 +98,6 @@ void keyPressed()
 
 void keyReleased(){  
   if (key == 'A' || key == 'a' || key == 'D' || key == 'd') {
-        newletter = false;
+        shift = false;
     }
 }
