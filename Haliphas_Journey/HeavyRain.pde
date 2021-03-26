@@ -12,7 +12,7 @@ class HeavyRain {
       HeavyPos.y = random(-200, 100);  
       fallSpeed = random(4, 10);
       }
-    stroke(0, 120, 90);
+    stroke(0, 90, 40);
     line(HeavyPos.x, HeavyPos.y, HeavyPos.x, HeavyPos.y+leng);
   }
 }

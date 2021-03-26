@@ -1,7 +1,7 @@
 int Phase = 0;
 
 PFont font;
-int substr_cnt;
+int subcnt;
 
 boolean shift;
 boolean direction;
@@ -9,7 +9,7 @@ boolean jump;
 float velocity;
 float velocityconst;
 Player player;
-HeavyRain[] HR = new HeavyRain[1000];
+HeavyRain[] HR = new HeavyRain[100];
 
 //PImage Halipha;
 PImage Baggrund00, Baggrund01;
@@ -22,8 +22,7 @@ int counter;
 
 void setup(){
 Halipha = loadImage("DefaultR.png");
-substr_cnt = 0;
-
+frameRate(60);
 Baggrund00 = loadImage("Bruddas.bmp");
 Baggrund00.resize(width, height);
 
@@ -31,7 +30,7 @@ Baggrund01 = loadImage("baggrund færdig.png");
 Baggrund01.resize(width, height);
 //size(1000,1000); 
 
-font = createFont("NewTegomin.ttf", 32); 
+font = createFont("NewTegomin.ttf", 40); 
 textFont(font);
   
 fullScreen();
@@ -41,7 +40,7 @@ velocity = velocityconst;
 for(int i = 0; i < HR.length; i++) {
    HR[i] = new HeavyRain();
 }
-smooth();
+//smooth();
 
 /*for (int i = 0; i < Walk.length; i++) {
     Walk[i] = loadImage( "Walk" + i + "R.gif");
@@ -81,9 +80,7 @@ void draw(){
     image(Baggrund00, 0, 0);
     for(int i = 0; i < HR.length; i++) {
      HR[i].fall();
-     //text("Press any key to continue", width-500, height-100);
     }
-    textSize(40);
     typeWrite("Press any key to continue...", width/2, height/2);
     break;  
   case 1:
@@ -124,6 +121,7 @@ void mousePressed(){
     break;
   default:
     //kode
+    Phase = 1;
     break;  
   case 1:
     //kode
@@ -138,7 +136,41 @@ void mousePressed(){
 }
 
 void keyPressed(){
-    player.movement(); 
+     
+    switch(Phase) {
+  case -6:
+    //kode
+    break;
+  case -5:
+    //kode
+    break;
+  case -4: 
+    //kode
+    break;
+  case -3:
+    //kode
+    break;
+  case -2:
+    //kode
+    break;
+  case -1:
+    //kode
+    break;
+  default:
+    //kode
+    Phase = 1;
+    break;  
+  case 1:
+    //kode
+    player.movement();
+    break;  
+  case 2:
+    //kode
+    break;
+  case 3:
+    //kode
+    break;
+  }
 }
 
 void keyReleased(){  
@@ -146,6 +178,6 @@ void keyReleased(){
 }
 
 void typeWrite(String msg, int x, int y) {
-  text (msg.substring(0,constrain(int(substr_cnt/5),0,msg.length())), x, y);
-  substr_cnt++;
+  text (msg.substring(0,constrain(int(subcnt/5),0,msg.length())), x, y);
+  subcnt++;
 }
