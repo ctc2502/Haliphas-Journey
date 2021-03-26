@@ -13,6 +13,10 @@ class Player {
     
   }
 
+  void movement() {
+    
+  
+  }
   
   void show() {
       //PImage walk = Walk[frameCount%7];
