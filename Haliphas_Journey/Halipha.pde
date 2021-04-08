@@ -28,9 +28,22 @@ class Player {
   }
   
   void show() {
-      //PImage walk = Walk[frameCount%7];
-      //if (walk != null) {
-      image(Halipha, xpos, ypos, r, r);
+      if (!direction) {
+        if (key == 'A' || key == 'a'){
+      if (WalkL[frameCount%7]!= null) {
+       image(WalkL[frameCount%7], xpos, ypos);
+          }
+        }
+      } else if (direction) {
+        if (key == 'D' || key == 'd') {
+      if (WalkR[frameCount%7]!= null) {
+       image(WalkR[frameCount%7], xpos, ypos);
+          } 
+        }
+      } 
+      if (key != 'D' && key != 'd' && key != 'A' && key != 'a') {
+      image(Halipha, xpos, ypos);
+      }
       //} 
      //drive();
      //fill(255, 50);
@@ -72,6 +85,8 @@ class Player {
     void releaz() {
       if (key == 'A' || key == 'a' || key == 'D' || key == 'd') {
         shift = false;
+        
       }
+      image(Halipha, xpos, ypos);
     }
 }

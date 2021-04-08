@@ -14,7 +14,8 @@ HeavyRain[] HR = new HeavyRain[100];
 //PImage Halipha;
 PImage Baggrund00, Baggrund01;
 PImage Halipha;
-PImage[] Walk = new PImage[7];
+PImage[] WalkR = new PImage[7];
+PImage[] WalkL = new PImage[7];
 
 boolean dir;
 //Halipha version 2.0
@@ -22,6 +23,8 @@ int counter;
 
 void setup(){
 Halipha = loadImage("DefaultR.png");
+Halipha.resize(100, 100);
+
 frameRate(60);
 Baggrund00 = loadImage("Bruddas.bmp");
 Baggrund00.resize(width, height);
@@ -42,10 +45,14 @@ for(int i = 0; i < HR.length; i++) {
 }
 //smooth();
 
-/*for (int i = 0; i < Walk.length; i++) {
-    Walk[i] = loadImage( "Walk" + i + "R.gif");
-  }
-  */
+for (int i = 0; i < WalkR.length; i++) {
+    WalkR[i] = loadImage( "Walk" + i + "R" + ".png");
+    WalkR[i].resize(100, 100);
+    }
+for (int i = 0; i < WalkL.length; i++) {
+    WalkL[i] = loadImage( "Walk" + i + "L" + ".png");
+    WalkL[i].resize(100, 100);
+    }
 }
 
 void draw(){
