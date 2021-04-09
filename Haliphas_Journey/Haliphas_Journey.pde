@@ -3,6 +3,10 @@ int Phase = 0;
 PFont font;
 int subcnt;
 
+Sky sky1 = new Sky();
+Platform platform1 = new Platform();
+ArrayList<RainDrop> listRain = new ArrayList<RainDrop>(100);
+
 boolean shift;
 boolean direction;
 boolean jump;
@@ -16,13 +20,16 @@ PImage Baggrund00, Baggrund01;
 PImage Halipha;
 PImage[] WalkR = new PImage[7];
 PImage[] WalkL = new PImage[7];
+PImage cloud0;
 
 boolean dir;
 //Halipha version 2.0
 int counter;
 
-void setup(){
+void setup() {
 Halipha = loadImage("DefaultR.png");
+
+
 Halipha.resize(100, 100);
 
 frameRate(60);
@@ -32,6 +39,9 @@ Baggrund00.resize(width, height);
 Baggrund01 = loadImage("baggrund færdig.png");
 Baggrund01.resize(width, height);
 //size(1000,1000); 
+
+cloud0 = loadImage("CloudSprite0.png");
+
 
 font = createFont("NewTegomin.ttf", 40); 
 textFont(font);
@@ -95,6 +105,40 @@ void draw(){
     image(Baggrund01, 0, 0);
     println(shift, " ", jump);
     player.show();
+    
+    for (RainDrop rd : listRain) {
+    rd.display();
+    if (!platform1.rammerDen(rd)) {
+      rd.move();
+    } /*else {
+          for (int u = listRain.size()-1; u > 0; u--) {
+          rd = listRain.get(u);
+          listRain.remove(rd);
+      }
+    } */
+    
+    //println(listRain.size());
+
+    if (rd.posRegn.y > height ) rd.udenfor = true;
+      }
+
+  for (int i = listRain.size()-1; i > 0; i--) {
+    if (listRain.size() > 0) {
+      RainDrop rd = listRain.get(i);
+      if (rd.udenfor) {
+        listRain.remove(rd);
+        print("fjern!!!!");
+      } 
+    }
+  }
+    //skyen
+    sky1.display();
+    //sky1.move(mouseX, mouseY);
+    sky1.regn();
+
+    //platformen
+    platform1.display();
+  
     
     break;  
   case 2:
