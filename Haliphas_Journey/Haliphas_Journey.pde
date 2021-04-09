@@ -4,7 +4,8 @@ PFont font;
 int subcnt;
 
 Sky sky1 = new Sky();
-Platform platform1 = new Platform();
+Platform platform1 = new Platform(200, 400, 400, 10);
+Platform platform2 = new Platform(800, 400, 100, 10);
 ArrayList<RainDrop> listRain = new ArrayList<RainDrop>(100);
 
 boolean shift;
@@ -38,7 +39,9 @@ Baggrund00.resize(width, height);
 
 Baggrund01 = loadImage("baggrund færdig.png");
 Baggrund01.resize(width, height);
-//size(1000,1000); 
+
+fullScreen();
+//size(960,640); 
 
 cloud0 = loadImage("CloudSprite0.png");
 
@@ -46,7 +49,7 @@ cloud0 = loadImage("CloudSprite0.png");
 font = createFont("NewTegomin.ttf", 40); 
 textFont(font);
   
-fullScreen();
+
 player = new Player(0, 870, 10);
 velocityconst = -8.0;
 velocity = velocityconst;
@@ -108,20 +111,12 @@ void draw(){
     
     for (RainDrop rd : listRain) {
     rd.display();
-    if (!platform1.rammerDen(rd)) {
+    if (!platform2.rammerDen(rd) && !platform1.rammerDen(rd)) {
       rd.move();
-    } /*else {
-          for (int u = listRain.size()-1; u > 0; u--) {
-          rd = listRain.get(u);
-          listRain.remove(rd);
+    } if (rd.posRegn.y > height ) rd.udenfor = true;
       }
-    } */
+   
     
-    //println(listRain.size());
-
-    if (rd.posRegn.y > height ) rd.udenfor = true;
-      }
-
   for (int i = listRain.size()-1; i > 0; i--) {
     if (listRain.size() > 0) {
       RainDrop rd = listRain.get(i);
@@ -138,7 +133,7 @@ void draw(){
 
     //platformen
     platform1.display();
-  
+    platform2.display();
     
     break;  
   case 2:

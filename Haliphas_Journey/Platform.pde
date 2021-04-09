@@ -1,15 +1,23 @@
 class Platform {
-    int hojde = 10;
-    int bredde = 100;
-    int x=400, y=400;
-
+    int h;
+    int b;
+    int x; 
+    int y;
+    
+    Platform(int X, int Y, int B, int H) {
+    x = X;
+    y = Y;
+    b = B;
+    h = H;
+    }
+    
     void display() {
-      rect(400, 400, bredde, hojde);
+      rect(x, y, b, h);
     }
 
     boolean rammerDen(RainDrop rd) {
-      boolean indenforX = rd.posRegn.x >= platform1.x && rd.posRegn.x <=  platform1.x + platform1.bredde;
-      boolean indenforY = rd.posRegn.y >= platform1.y && rd.posRegn.y <= platform1.y + platform1.hojde;
+      boolean indenforX = rd.posRegn.x >= x && rd.posRegn.x <=  x + b;
+      boolean indenforY = rd.posRegn.y >= y && rd.posRegn.y <= y + h;
 
       return indenforX && indenforY;
     }

@@ -63,8 +63,8 @@ class Player {
             float remainder = float(width) - xpos;
             xpos = 0 + (xspeed - remainder);
         } else if ((xpos - xspeed) < 0 && !(dir)) {
-            float remainder = xpos - 0;
-            xpos = width - (xspeed - remainder);
+            //float remainder = xpos - 0;
+            //xpos = width - (xspeed - remainder);
         } else {
             if (dir) xpos += xspeed;
             else xpos -= xspeed;
