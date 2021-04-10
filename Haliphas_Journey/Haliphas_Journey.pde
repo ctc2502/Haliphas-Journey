@@ -2,6 +2,7 @@ int Phase = 0;
 
 PFont font;
 int subcnt;
+int attempts = 0;
 
 Sky sky1 = new Sky();
 Platform platform1 = new Platform(200, 400, 400, 10);
@@ -29,8 +30,6 @@ int counter;
 
 void setup() {
 Halipha = loadImage("DefaultR.png");
-
-
 Halipha.resize(100, 100);
 
 frameRate(60);
@@ -70,10 +69,9 @@ for (int i = 0; i < WalkL.length; i++) {
 
 void draw(){
  clear();
- background(244,200,189);
- image(Baggrund01, 0, 0);
+ 
+ //image(Baggrund01, 0, 0);
  println(shift, " ", jump);
-    
     
     switch(Phase) {
   case -6:
@@ -96,25 +94,36 @@ void draw(){
     
     break;
   default:
-    //kode
     image(Baggrund00, 0, 0);
     for(int i = 0; i < HR.length; i++) {
      HR[i].fall();
     }
     typeWrite("Press any key to continue...", width/2, height/2);
     break;  
+  
   case 1:
     //kode
-    image(Baggrund01, 0, 0);
+    background(244,200,189);
+    //image(Baggrund01, 0, 0);
+    text("Attempts:" + attempts, 50, 50);
     println(shift, " ", jump);
     player.show();
     
     for (RainDrop rd : listRain) {
     rd.display();
+    rd.move();
     if (!platform2.rammerDen(rd) && !platform1.rammerDen(rd)) {
       rd.move();
     } if (rd.posRegn.y > height ) rd.udenfor = true;
       }
+      
+    for (RainDrop rd : listRain) {
+    rd.display();
+    if (player.Hitbox(rd)) {
+     player.xpos = 100;
+     attempts += 1;
+      }
+    }
    
     
   for (int i = listRain.size()-1; i > 0; i--) {
@@ -138,9 +147,13 @@ void draw(){
     break;  
   case 2:
     //kode
+    background(144,255,9);
+    player.show();
     break;
   case 3:
     //kode
+    background(44,22,200);
+    player.show();
     break;
   }
 }
@@ -212,9 +225,11 @@ void keyPressed(){
     break;  
   case 2:
     //kode
+    player.movement();
     break;
   case 3:
     //kode
+    player.movement();
     break;
   }
 }

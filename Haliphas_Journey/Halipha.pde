@@ -5,7 +5,7 @@ class Player {
     int r;
     
   Player(float xPos, float yPos, float xSpeed) {
-    r = 100;
+    r = 45;
     //x = 50;
     xpos = xPos;
     ypos = yPos;
@@ -44,6 +44,9 @@ class Player {
       if (key != 'D' && key != 'd' && key != 'A' && key != 'a') {
       image(Halipha, xpos, ypos);
       }
+      //Hitbox
+      noFill();
+      rect(xpos+25, ypos+25, r, r);
       //} 
      //drive();
      //fill(255, 50);
@@ -62,6 +65,7 @@ class Player {
         if ((xpos + xspeed) > width && (dir)) {
             float remainder = float(width) - xpos;
             xpos = 0 + (xspeed - remainder);
+            Phase++;
         } else if ((xpos - xspeed) < 0 && !(dir)) {
             //float remainder = xpos - 0;
             //xpos = width - (xspeed - remainder);
@@ -88,5 +92,13 @@ class Player {
         
       }
       image(Halipha, xpos, ypos);
+      
+    }
+    
+    boolean Hitbox(RainDrop rd) {
+      boolean indenforX = rd.posRegn.x >= xpos+25 && rd.posRegn.x <=  xpos+25 + r;
+      boolean indenforY = rd.posRegn.y >= ypos+25 && rd.posRegn.y <= ypos+25 + r;
+
+      return indenforX && indenforY;
     }
 }
