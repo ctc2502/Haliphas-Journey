@@ -45,8 +45,8 @@ class Player {
       image(Halipha, xpos, ypos);
       }
       //Hitbox
-      noFill();
-      rect(xpos+25, ypos+25, r, r);
+      /* noFill();
+      rect(xpos+25, ypos+25, r, r); */
       //} 
      //drive();
      //fill(255, 50);
