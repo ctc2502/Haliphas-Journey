@@ -15,7 +15,7 @@
 
     void display() {
     stroke(0);
-    strokeWeight(5);
+    strokeWeight(2);
     line(posRegn.x, posRegn.y, posRegn.x, posRegn.y+10);
     }
   }

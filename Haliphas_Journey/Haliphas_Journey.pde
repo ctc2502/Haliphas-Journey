@@ -4,9 +4,12 @@ PFont font;
 int subcnt;
 int attempts = 0;
 
-Sky sky1 = new Sky();
-Platform platform1 = new Platform(200, 400, 400, 10);
-Platform platform2 = new Platform(800, 400, 100, 10);
+Sky sky1 = new Sky(new PVector(300, 100));
+Sky sky2 = new Sky(new PVector(800, 90));
+Sky sky3 = new Sky(new PVector(500, 75));
+Sky sky4 = new Sky(new PVector(500, 75));
+Platform platform1 = new Platform(0, 800, 200, 10);
+Platform platform2 = new Platform(900, 800, 100, 10);
 ArrayList<RainDrop> listRain = new ArrayList<RainDrop>(100);
 
 boolean shift;
@@ -47,6 +50,7 @@ cloud0 = loadImage("CloudSprite0.png");
 
 font = createFont("NewTegomin.ttf", 40); 
 textFont(font);
+strokeWeight(2);
   
 
 player = new Player(0, 870, 10);
@@ -111,20 +115,18 @@ void draw(){
     
     for (RainDrop rd : listRain) {
     rd.display();
-    rd.move();
     if (!platform2.rammerDen(rd) && !platform1.rammerDen(rd)) {
       rd.move();
     } if (rd.posRegn.y > height ) rd.udenfor = true;
       }
       
-    for (RainDrop rd : listRain) {
-    rd.display();
-    if (player.Hitbox(rd)) {
-     player.xpos = 100;
-     attempts += 1;
+      for (RainDrop rd : listRain) {
+        rd.display();
+      if (player.Hitbox(rd)) {
+       player.xpos = 100;
+       attempts += 1;
+        }
       }
-    }
-   
     
   for (int i = listRain.size()-1; i > 0; i--) {
     if (listRain.size() > 0) {
@@ -136,19 +138,53 @@ void draw(){
     }
   }
     //skyen
-    sky1.display();
-    //sky1.move(mouseX, mouseY);
+    sky1.display(200, width-200);
     sky1.regn();
 
-    //platformen
+    //platformen 
     platform1.display();
     platform2.display();
+    
+    sky2.display(200, width-200);
+    sky2.regn();
+    
+    sky3.display(200, width-200);
+    sky3.regn();
     
     break;  
   case 2:
     //kode
     background(144,255,9);
     player.show();
+    
+    for (RainDrop rd : listRain) {
+        rd.display();
+      if (player.Hitbox(rd)) {
+       player.xpos = 100;
+       attempts += 1;
+        }
+      }
+      
+      for (RainDrop rd : listRain) {
+    rd.display();
+    if (!platform1.rammerDen(rd)) {
+      rd.move();
+    } if (rd.posRegn.y > height ) rd.udenfor = true;
+      }
+      
+       for (int i = listRain.size()-1; i > 0; i--) {
+    if (listRain.size() > 0) {
+      RainDrop rd = listRain.get(i);
+      if (rd.udenfor) {
+        listRain.remove(rd);
+        print("fjern!!!!");
+          } 
+        }
+       }
+       sky4.display(200, width-200);
+       sky4.regn();
+       
+       platform1.display();
     break;
   case 3:
     //kode

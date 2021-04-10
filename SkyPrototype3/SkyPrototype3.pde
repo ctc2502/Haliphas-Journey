@@ -1,4 +1,5 @@
-Sky sky1 = new Sky();
+Sky sky1 = new Sky(new PVector(400, 100));
+Sky sky2 = new Sky(new PVector(600, 100));
 Platform platform1 = new Platform();
 
 ArrayList<RainDrop> listRain = new ArrayList<RainDrop>();
@@ -14,7 +15,7 @@ void setup() {
 void draw() {
   clear();
   background(230, 230, 250);
-  println(listRain.size());
+  //println(listRain.size());
   //Regnen regner på platforme
   for (RainDrop rd : listRain) {
     rd.display();
@@ -36,16 +37,19 @@ void draw() {
     if (listRain.size() > 0) {
       RainDrop rd = listRain.get(i);
       if (rd.udenfor) {
-        listRain.remove(0);
-        print("fjern!!!!");
+        listRain.remove(rd);
+        //print("fjern!!!!");
       } 
     }
   }
     //skyen
     sky1.display();
     //sky1.move(mouseX, mouseY);
-    sky1.regn();
-
+    sky1.regn(10000, 2000);
+    
+    sky2.display();
+    //sky1.move(mouseX, mouseY);
+    sky2.regn(8000, 2000);
     //platformen
     platform1.display();
   

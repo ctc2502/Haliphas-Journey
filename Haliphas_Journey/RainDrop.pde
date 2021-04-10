@@ -6,7 +6,7 @@
     void startRain(int x_sky, int y_sky) {
       posRegn.x =  x_sky + random(-100, 100);
       posRegn.y =  y_sky+ random(0, 100);
-      speedRegn= (int)random(4, 10);
+      speedRegn= (int)random(5, 10);
     }
 
     void move() {
