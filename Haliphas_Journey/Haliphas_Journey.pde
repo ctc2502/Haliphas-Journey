@@ -7,9 +7,19 @@ int attempts = 0;
 Sky sky1 = new Sky(new PVector(300, 100));
 Sky sky2 = new Sky(new PVector(800, 90));
 Sky sky3 = new Sky(new PVector(500, 75));
-Sky sky4 = new Sky(new PVector(500, 75));
+Sky sky4 = new Sky(new PVector(400, 75));
+Sky sky5 = new Sky(new PVector(700, 100));
+Sky sky6 = new Sky(new PVector(1000, 90));
+Sky sky7 = new Sky(new PVector(1300, 75));
+Sky sky8 = new Sky(new PVector(1600, 100));
+
 Platform platform1 = new Platform(0, 800, 200, 10);
 Platform platform2 = new Platform(900, 800, 100, 10);
+Platform platform3 = new Platform(525, 800, 100, 10);
+Platform platform4 = new Platform(825, 800, 100, 10);
+Platform platform5 = new Platform(1125, 800, 100, 10);
+Platform platform6 = new Platform(1425, 800, 100, 10);
+
 ArrayList<RainDrop> listRain = new ArrayList<RainDrop>(100);
 
 boolean shift;
@@ -109,7 +119,7 @@ void draw(){
     //kode
     background(244,200,189);
     //image(Baggrund01, 0, 0);
-    text("Attempts:" + attempts, 50, 50);
+    
     println(shift, " ", jump);
     player.show();
     
@@ -139,18 +149,20 @@ void draw(){
   }
     //skyen
     sky1.display(200, width-200);
-    sky1.regn();
+    sky1.regn(10000, 0);
 
     //platformen 
     platform1.display();
     platform2.display();
+    //ground0.display();
     
     sky2.display(200, width-200);
-    sky2.regn();
+    sky2.regn(10000, 0);
     
     sky3.display(200, width-200);
-    sky3.regn();
+    sky3.regn(10000, 0);
     
+    text("Attempts:" + attempts, 50, 50);
     break;  
   case 2:
     //kode
@@ -167,7 +179,7 @@ void draw(){
       
       for (RainDrop rd : listRain) {
     rd.display();
-    if (!platform1.rammerDen(rd)) {
+    if (!platform1.rammerDen(rd) && !platform3.rammerDen(rd) && !platform4.rammerDen(rd) && !platform5.rammerDen(rd) && !platform6.rammerDen(rd)) {
       rd.move();
     } if (rd.posRegn.y > height ) rd.udenfor = true;
       }
@@ -181,15 +193,34 @@ void draw(){
           } 
         }
        }
-       sky4.display(200, width-200);
-       sky4.regn();
+       sky4.display(400, 450);
+       sky4.regn(10000, 5000);
+       
+       sky5.display(700, 750);
+       sky5.regn(10000, 5000);
+       
+       sky6.display(1000, 1050);
+       sky6.regn(10000, 5000);
+       
+       sky7.display(1300, 1350);
+       sky7.regn(10000, 5000);
+       
+       sky8.display(1600, 1650);
+       sky8.regn(10000, 5000);
        
        platform1.display();
+       platform3.display();
+       platform4.display();
+       platform5.display();
+       platform6.display();
+       
+       text("Attempts:" + attempts, 50, 50);
     break;
   case 3:
     //kode
     background(44,22,200);
     player.show();
+    text("Attempts:" + attempts, 50, 50);
     break;
   }
 }
