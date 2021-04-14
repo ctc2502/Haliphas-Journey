@@ -14,14 +14,17 @@ Sky sky7 = new Sky(new PVector(1300, 75));
 Sky sky8 = new Sky(new PVector(1600, 100));
 
 Platform platform1 = new Platform(0, 800, 200, 10);
-Platform platform2 = new Platform(900, 800, 100, 10);
+Platform platform2 = new Platform(0, 510, 1335, 10);
 Platform platform3 = new Platform(525, 800, 100, 10);
 Platform platform4 = new Platform(825, 800, 100, 10);
 Platform platform5 = new Platform(1125, 800, 100, 10);
 Platform platform6 = new Platform(1425, 800, 100, 10);
+//Platform platform2 = new Platform(900, 800, 100, 10);
 
 ArrayList<RainDrop> listRain = new ArrayList<RainDrop>(100);
 
+int cooldown = 30;
+float xspeed = 10;
 boolean shift;
 boolean direction;
 boolean jump;
@@ -69,7 +72,7 @@ textFont(font);
 strokeWeight(2);
   
 
-player = new Player(0, 870, 10);
+player = new Player(0, 870);
 velocityconst = -8.0;
 velocity = velocityconst;
 for(int i = 0; i < HR.length; i++) {
@@ -91,7 +94,7 @@ void draw(){
  clear();
  
  //image(Baggrund01, 0, 0);
- println(shift, " ", jump);
+ //println(shift, " ", jump);
     
     switch(Phase) {
   case -6:
@@ -118,6 +121,7 @@ void draw(){
     for(int i = 0; i < HR.length; i++) {
      HR[i].fall();
     }
+ 
     typeWrite("Press any key to continue...", width/2, height/2);
     break;  
   
@@ -126,30 +130,41 @@ void draw(){
     //background(244,200,189);
     image(Baggrund01, 0, 0);
     
-    println(shift, " ", jump);
+    println(cooldown);
     player.show();
     
     for (RainDrop rd : listRain) {
-    rd.display();
+    rd.display(0);
     if (!platform2.rammerDen(rd) && !platform1.rammerDen(rd)) {
       rd.move();
     } if (rd.posRegn.y > height ) rd.udenfor = true;
       }
       
       for (RainDrop rd : listRain) {
-        rd.display();
+        rd.display(0);
       if (player.Hitbox(rd)) {
        player.xpos = 100;
        attempts += 1;
+       
+       /*xspeed = 0;
+       cooldown = 0;*/
         }
       }
+    /*
+    if (cooldown < 30) {
+      cooldown++;
+    }
+    
+    if (cooldown == 30) {
+      xspeed = 10;
+    } */
     
   for (int i = listRain.size()-1; i > 0; i--) {
     if (listRain.size() > 0) {
       RainDrop rd = listRain.get(i);
       if (rd.udenfor) {
         listRain.remove(rd);
-        print("fjern!!!!");
+        //print("fjern!!!!");
       } 
     }
   }
@@ -159,7 +174,7 @@ void draw(){
 
     //platformen 
     platform1.display();
-    platform2.display();
+    //platform2.display();
     //ground0.display();
     
     sky2.display(200, width-200);
@@ -177,7 +192,7 @@ void draw(){
     player.show();
     
     for (RainDrop rd : listRain) {
-        rd.display();
+        rd.display(0);
       if (player.Hitbox(rd)) {
        player.xpos = 100;
        attempts += 1;
@@ -185,8 +200,8 @@ void draw(){
       }
       
       for (RainDrop rd : listRain) {
-    rd.display();
-    if (!platform1.rammerDen(rd) && !platform3.rammerDen(rd) && !platform4.rammerDen(rd) && !platform5.rammerDen(rd) && !platform6.rammerDen(rd)) {
+    rd.display(0);
+    if (!platform1.rammerDen(rd)/* && !platform3.rammerDen(rd) && !platform4.rammerDen(rd) && !platform5.rammerDen(rd) && !platform6.rammerDen(rd) */) {
       rd.move();
     } if (rd.posRegn.y > height ) rd.udenfor = true;
       }
@@ -196,7 +211,7 @@ void draw(){
       RainDrop rd = listRain.get(i);
       if (rd.udenfor) {
         listRain.remove(rd);
-        print("fjern!!!!");
+        //print("fjern!!!!");
           } 
         }
        }
@@ -215,12 +230,13 @@ void draw(){
        sky8.display(1600, 1650);
        sky8.regn(10000, 5000);
        
+       /*
        platform1.display();
        platform3.display();
        platform4.display();
        platform5.display();
        platform6.display();
-       
+       */
        text("Attempts:" + attempts, 50, 50);
     break;
   case 3:
@@ -256,6 +272,8 @@ void mousePressed(){
   default:
     //kode
     Phase = 1;
+       attempts = 0;
+
     break;  
   case 1:
     //kode
@@ -293,6 +311,7 @@ void keyPressed(){
   default:
     //kode
     Phase = 1;
+       attempts = 0;
     break;  
   case 1:
     //kode
@@ -314,6 +333,9 @@ void keyReleased(){
 }
 
 void typeWrite(String msg, int x, int y) {
+      textMode(CENTER);
+      textAlign(CENTER);
   text (msg.substring(0,constrain(int(subcnt/5),0,msg.length())), x, y);
   subcnt++;
+  textAlign(LEFT);
 }

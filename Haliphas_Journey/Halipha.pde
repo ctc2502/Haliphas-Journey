@@ -1,15 +1,13 @@
 class Player {
     float xpos;
     float ypos;
-    float xspeed;
-    int r;
-    
-  Player(float xPos, float yPos, float xSpeed) {
+    int r;    
+  Player(float xPos, float yPos) {
     r = 45;
     //x = 50;
     xpos = xPos;
     ypos = yPos;
-    xspeed = xSpeed;
+    //xspeed = xSpeed;
     
   }
 
