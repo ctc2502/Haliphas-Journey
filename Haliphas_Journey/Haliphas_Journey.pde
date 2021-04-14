@@ -31,7 +31,7 @@ Player player;
 HeavyRain[] HR = new HeavyRain[100];
 
 //PImage Halipha;
-PImage Baggrund00, Baggrund01;
+PImage Baggrund00, Baggrund01, Baggrund02, Baggrund03;
 PImage Halipha;
 PImage[] WalkR = new PImage[7];
 PImage[] WalkL = new PImage[7];
@@ -49,8 +49,14 @@ frameRate(60);
 Baggrund00 = loadImage("Bruddas.bmp");
 Baggrund00.resize(width, height);
 
-Baggrund01 = loadImage("baggrund færdig.png");
+Baggrund01 = loadImage("Background1.png");
 Baggrund01.resize(width, height);
+
+Baggrund02 = loadImage("Background2.png");
+Baggrund02.resize(width, height);
+
+Baggrund03 = loadImage("Background3.png");
+Baggrund03.resize(width, height);
 
 fullScreen();
 //size(960,640); 
@@ -117,8 +123,8 @@ void draw(){
   
   case 1:
     //kode
-    background(244,200,189);
-    //image(Baggrund01, 0, 0);
+    //background(244,200,189);
+    image(Baggrund01, 0, 0);
     
     println(shift, " ", jump);
     player.show();
@@ -166,7 +172,8 @@ void draw(){
     break;  
   case 2:
     //kode
-    background(144,255,9);
+    //background(144,255,9);
+    image(Baggrund02, 0, 0);
     player.show();
     
     for (RainDrop rd : listRain) {
@@ -218,7 +225,8 @@ void draw(){
     break;
   case 3:
     //kode
-    background(44,22,200);
+    //background(44,22,200);
+    image(Baggrund03, 0, 0);
     player.show();
     text("Attempts:" + attempts, 50, 50);
     break;
