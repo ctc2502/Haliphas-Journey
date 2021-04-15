@@ -18,7 +18,7 @@ void draw() {
   //println(listRain.size());
   //Regnen regner på platforme
   for (RainDrop rd : listRain) {
-    rd.display();
+    rd.display(0);
     if (!platform1.rammerDen(rd)) {
       rd.move();
     } /*else {
@@ -45,11 +45,11 @@ void draw() {
     //skyen
     sky1.display();
     //sky1.move(mouseX, mouseY);
-    sky1.regn(10000, 2000);
+    sky1.regn(100, 1000);
     
-    sky2.display();
+    //sky2.display();
     //sky1.move(mouseX, mouseY);
-    sky2.regn(8000, 2000);
+    //sky2.regn(8000, 2000);
     //platformen
     platform1.display();
   

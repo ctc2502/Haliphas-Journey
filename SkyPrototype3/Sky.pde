@@ -17,7 +17,7 @@
       }
       
       if(lastMillis > RainOFF) { 
-      if (random(0, 1) < 50) {
+      if (random(0, 1) < 5) {
         RainDrop rd = new RainDrop();
         rd.startRain((int)posSky.x, (int)posSky.y);
         listRain.add(rd);
