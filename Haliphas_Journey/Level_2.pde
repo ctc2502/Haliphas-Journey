@@ -1,6 +1,6 @@
 void Level02() {
   //background(144,255,9);
-    image(Baggrund02, 0, 0);
+    image(Background02, 0, 0);
     player.show();
     
     for (RainDrop rd : listRain) {

@@ -1,6 +1,6 @@
 void Level01() {
   //background(244,200,189);
-    image(Baggrund01, 0, 0);
+    image(Background01, 0, 0);
     
     println(cooldown);
     player.show();

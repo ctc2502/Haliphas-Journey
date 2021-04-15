@@ -14,31 +14,28 @@ Player player;
 float velocity;
 float velocityconst;
 
-PImage Baggrund00, Baggrund01, Baggrund02, Baggrund03;
+PImage Background00, Background01, Background02, Background03, Background04;
 PImage Halipha;
 PImage[] WalkR = new PImage[7];
 PImage[] WalkL = new PImage[7];
 PImage cloud0;
-
-
-
 
 void setup() {
 Halipha = loadImage("DefaultR.png");
 Halipha.resize(100, 100);
 
 frameRate(60);
-Baggrund00 = loadImage("Bruddas.bmp");
-Baggrund00.resize(width, height);
+Background00 = loadImage("Bruddas.bmp");
+Background00.resize(width, height);
 
-Baggrund01 = loadImage("Background1.png");
-Baggrund01.resize(width, height);
+Background01 = loadImage("Background1.png");
+Background01.resize(width, height);
 
-Baggrund02 = loadImage("Background2.png");
-Baggrund02.resize(width, height);
+Background02 = loadImage("Background2.png");
+Background02.resize(width, height);
 
-Baggrund03 = loadImage("Background3.png");
-Baggrund03.resize(width, height);
+Background03 = loadImage("Background04.png");
+Background03.resize(width, height);
 
 fullScreen();
 //size(960,640); 
