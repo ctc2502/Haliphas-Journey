@@ -2,6 +2,11 @@ class Player {
     float xpos;
     float ypos;
     int r;    
+    boolean direction;
+    boolean dir;
+    boolean shift;
+    boolean jump;
+    
   Player(float xPos, float yPos) {
     r = 45;
     //x = 50;

@@ -50,14 +50,14 @@ void comp01(){
     //ground0.display();
     
     //skyer
-    sky1.display(200, width-200);
-    sky1.regn(10000, 0);
+    sky1.display(1430, 1450, 5);
+    sky1.regn(10000, 5000);
     
-    sky2.display(200, width-200);
-    sky2.regn(10000, 0);
+    /*sky2.display(200, width-200);
+    sky2.regn(10000, 0);*/
     
-    sky3.display(200, width-200);
-    sky3.regn(10000, 0);
+    /*sky3.display(200, width-200);
+    sky3.regn(10000, 0); */
     
     text("Attempts:" + attempts, 50, 50);
 }

@@ -13,7 +13,7 @@ void Level02() {
       
       for (RainDrop rd : listRain) {
     rd.display(0);
-    if (!platform1.rammerDen(rd)/* && !platform3.rammerDen(rd) && !platform4.rammerDen(rd) && !platform5.rammerDen(rd) && !platform6.rammerDen(rd) */) {
+    if (!platform1.rammerDen(rd) && !platform3.rammerDen(rd) && !platform4.rammerDen(rd) && !platform5.rammerDen(rd) && !platform6.rammerDen(rd) && !platform7.rammerDen(rd) && !platform8.rammerDen(rd) && !platform9.rammerDen(rd)) {
       rd.move();
     } if (rd.posRegn.y > height ) rd.udenfor = true;
       }
@@ -27,6 +27,14 @@ void Level02() {
           } 
         }
        }
+       
+       comp02();
+}
+
+void comp02() {
+       sky2.display(200, width-200, 15);
+       sky2.regn(10000, 0);
+       /*
        sky4.display(400, 450);
        sky4.regn(10000, 5000);
        
@@ -40,7 +48,7 @@ void Level02() {
        sky7.regn(10000, 5000);
        
        sky8.display(1600, 1650);
-       sky8.regn(10000, 5000);
+       sky8.regn(10000, 5000);*/
        
        /*
        platform1.display();
@@ -48,7 +56,10 @@ void Level02() {
        platform4.display();
        platform5.display();
        platform6.display();
-       */
+       platform7.display();
+       platform8.display();
+       platform9.display();
+       */ 
+       
        text("Attempts:" + attempts, 50, 50);
-  
 }

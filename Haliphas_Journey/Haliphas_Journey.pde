@@ -1,48 +1,27 @@
+ArrayList<RainDrop> listRain = new ArrayList<RainDrop>(100);
+HeavyRain[] HR = new HeavyRain[100];
+
 int Phase = 0;
+int attempts = 0;
+int counter;
+int cooldown = 30;
+float xspeed = 10;
 
 PFont font;
 int subcnt;
-int attempts = 0;
 
-Sky sky1 = new Sky(new PVector(300, 100));
-Sky sky2 = new Sky(new PVector(800, 90));
-Sky sky3 = new Sky(new PVector(500, 75));
-Sky sky4 = new Sky(new PVector(400, 75));
-Sky sky5 = new Sky(new PVector(700, 100));
-Sky sky6 = new Sky(new PVector(1000, 90));
-Sky sky7 = new Sky(new PVector(1300, 75));
-Sky sky8 = new Sky(new PVector(1600, 100));
-
-Platform platform1 = new Platform(0, 800, 200, 10);
-Platform platform2 = new Platform(0, 510, 1335, 10);
-Platform platform3 = new Platform(525, 800, 100, 10);
-Platform platform4 = new Platform(825, 800, 100, 10);
-Platform platform5 = new Platform(1125, 800, 100, 10);
-Platform platform6 = new Platform(1425, 800, 100, 10);
-//Platform platform2 = new Platform(900, 800, 100, 10);
-
-ArrayList<RainDrop> listRain = new ArrayList<RainDrop>(100);
-
-int cooldown = 30;
-float xspeed = 10;
-boolean shift;
-boolean direction;
-boolean jump;
+Player player;
 float velocity;
 float velocityconst;
-Player player;
-HeavyRain[] HR = new HeavyRain[100];
 
-//PImage Halipha;
 PImage Baggrund00, Baggrund01, Baggrund02, Baggrund03;
 PImage Halipha;
 PImage[] WalkR = new PImage[7];
 PImage[] WalkL = new PImage[7];
 PImage cloud0;
 
-boolean dir;
-//Halipha version 2.0
-int counter;
+
+
 
 void setup() {
 Halipha = loadImage("DefaultR.png");
@@ -118,19 +97,23 @@ void draw(){
     break;
   default:
     Level00();
+    Debug();
     break;  
   
   case 1:
     //kode
     Level01();
+    Debug();
     break;  
   case 2:
     //kode
     Level02();
+    Debug();
     break;
   case 3:
     //kode
     Level03();
+    Debug();
     break;
   }
 }
@@ -158,8 +141,8 @@ void mousePressed(){
   default:
     //kode
     Phase = 1;
-       attempts = 0;
-
+    attempts = 0;
+    Debug();
     break;  
   case 1:
     //kode
@@ -174,8 +157,7 @@ void mousePressed(){
 }
 
 void keyPressed(){
-     
-    switch(Phase) {
+     switch(Phase) {
   case -6:
     //kode
     break;
@@ -197,7 +179,7 @@ void keyPressed(){
   default:
     //kode
     Phase = 1;
-       attempts = 0;
+    attempts = 0;
     break;  
   case 1:
     //kode
@@ -223,4 +205,15 @@ void typeWrite(String msg, int x, int y) {
   text (msg.substring(0,constrain(int(subcnt/5),0,msg.length())), x, y);
   subcnt++;
   textAlign(LEFT);
+}
+
+void Debug() {
+  //Debug
+  if (mouseButton == RIGHT) {
+    ellipse( mouseX, mouseY, 2, 2 );
+    fill(0);
+    text( "x: " + mouseX + " y: " + mouseY, mouseX + 2, mouseY );
+    text(frameRate, mouseX+64, mouseY+64);
+    fill(255);
+  }
 }

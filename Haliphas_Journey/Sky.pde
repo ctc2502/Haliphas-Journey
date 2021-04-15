@@ -1,6 +1,5 @@
  class Sky {
     PVector posSky; 
-    int velo = 10;
     boolean leftright = false;
     int lastMillis=0;
     int milli = 50;
@@ -23,12 +22,12 @@
         }
       }
     }
-    void display(int start, int end) {
-      movement(start, end);
+    void display(int start, int end, int velo) {
+      movement(start, end, velo);
       image(cloud0, posSky.x-250, posSky.y-250);
     }
     
-    void movement(int start, int end) {
+    void movement(int start, int end, int velo) {
   if (posSky.x >= start && leftright == false) {
       posSky.x += velo;
     } else if (leftright == true) {
