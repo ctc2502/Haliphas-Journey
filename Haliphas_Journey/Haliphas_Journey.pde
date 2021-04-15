@@ -34,7 +34,7 @@ Background01.resize(width, height);
 Background02 = loadImage("Background2.png");
 Background02.resize(width, height);
 
-Background03 = loadImage("Background04.png");
+Background03 = loadImage("Background03.png");
 Background03.resize(width, height);
 
 fullScreen();
@@ -112,7 +112,12 @@ void draw(){
     Level03();
     Debug();
     break;
-  }
+  case 4:
+    //kode
+    Level04();
+    Debug();
+    break;
+   }
 }
 
 void mousePressed(){
@@ -190,7 +195,13 @@ void keyPressed(){
     //kode
     player.movement();
     break;
+    
+  case 4:
+    //kode
+    player.movement();
+    break;
   }
+  
 }
 
 void keyReleased(){  
