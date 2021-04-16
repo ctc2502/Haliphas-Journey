@@ -31,9 +31,6 @@ void coolHit() {
   for (CoolDrop cd : listCool) {
         cd.display();
       if (player.Hitbox(cd)) {
-       player.xpos = 100;
-       attempts += 1;
-       
        xspeed = 0;
        cooldown = 0;
         }
