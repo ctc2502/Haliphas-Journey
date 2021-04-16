@@ -9,7 +9,6 @@ void Level03() {
     } if (rd.posRegn.y > height ) rd.udenfor = true;
       }
       
-     rainHit();
       rainHit();
   comp04();
 }
