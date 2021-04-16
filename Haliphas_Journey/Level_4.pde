@@ -30,7 +30,7 @@ void Level04() {
 }
 
 void comp04() {
-       sky8.display(200, width-200, 15);
+       sky8.display(200, width-200, 10);
        sky8.regn(10000, 0);
        
        sky9.display(200, width-200, 10);
