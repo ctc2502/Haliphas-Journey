@@ -8,40 +8,24 @@ void Level02() {
       rd.move();
     } if (rd.posRegn.y > height ) rd.udenfor = true;
       }
-      rainHit();
-       
+      for (CoolDrop cd : listCool) {
+    cd.display();
+    if (!platform1.rammerDen(cd)) {
+      cd.move();
+    } if (cd.posRegn.y > height ) cd.udenfor = true;
+      }
+  
+  rainHit();
+  coolHit();
       comp02();
 }
 
 void comp02() {
-       sky2.display(200, width-200, 15);
-       sky2.regn(10000, 0, 0);
-       /*
-       sky4.display(400, 450);
-       sky4.regn(10000, 5000);
+       sky3.display(200, width-200, 15);
+       sky3.regn(10000, 0, 0);
        
-       sky5.display(700, 750);
-       sky5.regn(10000, 5000);
-       
-       sky6.display(1000, 1050);
-       sky6.regn(10000, 5000);
-       
-       sky7.display(1300, 1350);
-       sky7.regn(10000, 5000);
-       
-       sky8.display(1600, 1650);
-       sky8.regn(10000, 5000);*/
-       
-       /*
-       platform1.display();
-       platform3.display();
-       platform4.display();
-       platform5.display();
-       platform6.display();
-       platform7.display();
-       platform8.display();
-       platform9.display();
-       */ 
-       
+       sky2.display(250, 300, 5);
+       sky2.regn(5000, 2000, 1);
        text("Attempts:" + attempts, 50, 50);
+        platform1.display();
 }

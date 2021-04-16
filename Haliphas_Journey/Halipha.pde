@@ -69,6 +69,7 @@ class Player {
             float remainder = float(width) - xpos;
             xpos = 0 + (xspeed - remainder);
             Phase++;
+            subcnt = 0;
         } else if ((xpos - xspeed) < 0 && !(dir)) {
             //float remainder = xpos - 0;
             //xpos = width - (xspeed - remainder);
@@ -94,8 +95,7 @@ class Player {
         shift = false;
         
       }
-      image(Halipha, xpos, ypos);
-      
+      image(Halipha, xpos, ypos); 
     }
     
     boolean Hitbox(RainDrop rd) {

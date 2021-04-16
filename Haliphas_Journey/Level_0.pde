@@ -39,7 +39,7 @@ void coolHit() {
       cooldown++;
     }
     if (cooldown == 30) {
-      xspeed = 10;
+      xspeed = 8;
     }
     
     for (int i = listCool.size()-1; i > 0; i--) {

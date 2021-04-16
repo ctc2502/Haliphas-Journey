@@ -1,5 +1,5 @@
-void Level05() {
-  image(Background03, 0, 0);
+void Level06() {
+  image(Background06, 0, 0);
   player.show();
   for (RainDrop rd : listRain) {
     rd.display();
@@ -17,10 +17,10 @@ void Level05() {
   
   rainHit();
   coolHit();
-  comp05();
+  comp06();
 }
 
-void comp05() {
+void comp06() {
        sky9.display(-200, width+200, 10);
        sky9.regn(10000, 0, 0);
        

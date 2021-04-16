@@ -10,18 +10,19 @@ void Level03() {
       }
       
       rainHit();
-  comp04();
+  comp03();
 }
 
-void comp04() {
-       sky8.display(200, width-200, 10);
-       sky8.regn(10000, 0, 0);
-       
+void comp03() {
        sky9.display(200, width-200, 10);
        sky9.regn(10000, 0, 0);
        
        sky10.display(200, width-200, 10);
        sky10.regn(10000, 0, 0);
        
+       sky11.display(200, width-200, 10);
+       sky11.regn(10000, 0, 0);
+       
        text("Attempts:" + attempts, 50, 50);
+        platform1.display();
 }

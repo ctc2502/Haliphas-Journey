@@ -1,8 +1,6 @@
 void Level01() {
   //background(244,200,189);
     image(Background01, 0, 0);
-    
-    println(cooldown);
     player.show();
     
     for (RainDrop rd : listRain) {
@@ -15,6 +13,8 @@ void Level01() {
     rainHit();
     
     comp01();
+    
+    safeRoom("W, A & D to navigate through the rain...");
 }
 
 void comp01(){
