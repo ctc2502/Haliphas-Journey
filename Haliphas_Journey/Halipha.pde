@@ -65,12 +65,14 @@ class Player {
   }
   
   void drive(boolean dir) {
-        if ((xpos + xspeed) > width && (dir)) {
+        if ((xpos + xspeed) > width-45 && (dir)) {
+            if (pettypts >= 3 || Phase != 6) {
             float remainder = float(width) - xpos;
             xpos = 0 + (xspeed - remainder);
             Phase++;
             subcnt = 0;
-        } else if ((xpos - xspeed) < 0 && !(dir)) {
+            }
+        } else if ((xpos - xspeed) < -45 && !(dir)) {
             //float remainder = xpos - 0;
             //xpos = width - (xspeed - remainder);
         } else {

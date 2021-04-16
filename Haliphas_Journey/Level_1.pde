@@ -32,6 +32,6 @@ void comp01(){
     
     /*sky3.display(200, width-200);
     sky3.regn(10000, 0); */
-    
+    fill(255);
     text("Attempts:" + attempts, 50, 50);
 }

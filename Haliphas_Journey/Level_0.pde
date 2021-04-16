@@ -13,6 +13,7 @@ void rainHit() {
       if (player.Hitbox(rd)) {
        player.xpos = 100;
        attempts += 1;
+       pettypts = 0;
         }
       }
       
@@ -51,4 +52,24 @@ void coolHit() {
       } 
     }
   }
+}
+
+void petsHit() {
+  for (PetDrop pd : listPets) {
+        pd.display();
+      if (player.Hitbox(pd)) {
+        if (pettypts < 3) {
+         pettypts++;
+          }
+        }
+    }
+
+    for (int i = listPets.size()-1; i > 0; i--) {
+    if (listPets.size() > 0) {
+      PetDrop pd = listPets.get(i);
+      if (player.Hitbox(pd) || pd.udenfor) {
+        listPets.remove(pd);
+      }
+    }
+  } 
 }

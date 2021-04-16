@@ -1,5 +1,6 @@
-ArrayList<RainDrop> listRain = new ArrayList<RainDrop>(100);
-ArrayList<CoolDrop> listCool = new ArrayList<CoolDrop>(100);
+ArrayList<RainDrop> listRain = new ArrayList<RainDrop>();
+ArrayList<CoolDrop> listCool = new ArrayList<CoolDrop>();
+ArrayList<PetDrop> listPets = new ArrayList<PetDrop>();
 HeavyRain[] HR = new HeavyRain[100];
 
 int Phase = 0;
@@ -7,6 +8,7 @@ int attempts = 0;
 int counter;
 int cooldown = 30;
 float xspeed = 7;
+int pettypts = 0;
 
 int subcnt;
 PFont font;
@@ -262,6 +264,7 @@ void safeRoom(String hints) {
   imageMode(CENTER);
   textAlign(CENTER);
   image(frame, framePOS.x, framePOS.y);
+  fill(255);
   typeWrite(hints, (int)framePOS.x+75, (int)framePOS.y);
   if (player.xpos < 200) {
     if (framePOS.y < 50) {
@@ -277,7 +280,7 @@ void safeRoom(String hints) {
 void typeWrite(String msg, int x, int y) {
   textAlign(CENTER);
   text (msg.substring(0, constrain(int(subcnt/5), 0, msg.length())), x, y);
-  println(subcnt);
+  //println(subcnt);
   subcnt++;
   textAlign(LEFT);
 }

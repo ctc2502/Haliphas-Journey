@@ -27,6 +27,7 @@ void comp05() {
        sky10.display(200, width-200, 10);
        sky10.regn(4000, 2000, 1);
        
+       fill(255);
        text("Attempts:" + attempts, 50, 50);
-        platform1.display();
+       platform1.display();
 }
