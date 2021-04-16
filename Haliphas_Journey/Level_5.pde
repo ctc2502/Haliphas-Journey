@@ -1,5 +1,5 @@
 void Level05() {
-  image(Background01, 0, 0);
+  image(Background03, 0, 0);
   player.show();
   for (RainDrop rd : listRain) {
     rd.display();
@@ -21,11 +21,11 @@ void Level05() {
 }
 
 void comp05() {
-       /*sky8.display(200, width-200, 10);
-       sky8.regn(10000, 0, 0); */
+       sky8.display(-200, width+200, 10);
+       sky8.regn(10000, 0, 0);
        
        sky9.display(200, width-200, 10);
-       sky9.regn(10000, 0, 1);
+       sky9.regn(4000, 2000, 1);
        
        /*sky10.display(200, width-200, 10);
        sky10.regn(10000, 0, 0);*/
