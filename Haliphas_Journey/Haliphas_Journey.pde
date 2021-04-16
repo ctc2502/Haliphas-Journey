@@ -162,6 +162,7 @@ void mousePressed() {
   default:
     //kode
     Phase = 1;
+    subcnt = 0;
     attempts = 0;
     Debug();
     break;  
@@ -209,6 +210,7 @@ void keyPressed() {
   default:
     //kode
     Phase = 1;
+    subcnt = 0;
     attempts = 0;
     break;  
   case 1:
@@ -240,6 +242,9 @@ void keyPressed() {
 
 void keyReleased() {  
   player.releaz();
+  if (keyCode == RIGHT) {
+   Phase++;
+  }
 }
 
 void Debug() {

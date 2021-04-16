@@ -14,8 +14,8 @@ Sky sky9 = new Sky(new PVector(500, 275));
 Sky sky10 = new Sky(new PVector(750, 300));
 Sky sky11 = new Sky(new PVector(250, 490));
 
-Sky sky12 = new Sky(new PVector(250, 490));
-Sky sky13 = new Sky(new PVector(750, 300));
+Sky sky12 = new Sky(new PVector(410, 490));
+Sky sky13 = new Sky(new PVector(1230, 300));
 
 //Platforme
 Platform platform1 = new Platform(0, 800, 200, 10);
