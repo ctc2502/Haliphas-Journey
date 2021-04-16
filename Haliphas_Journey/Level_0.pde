@@ -64,7 +64,7 @@ void petsHit() {
         }
     }
 
-    for (int i = listPets.size()-1; i > 0; i--) {
+    for (int i = listPets.size()-1;   i > 0; i--) {
     if (listPets.size() > 0) {
       PetDrop pd = listPets.get(i);
       if (player.Hitbox(pd) || pd.udenfor) {
