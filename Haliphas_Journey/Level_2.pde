@@ -2,38 +2,20 @@ void Level02() {
   //background(144,255,9);
     image(Background02, 0, 0);
     player.show();
-    
-    for (RainDrop rd : listRain) {
-        rd.display(0);
-      if (player.Hitbox(rd)) {
-       player.xpos = 100;
-       attempts += 1;
-        }
-      }
-      
       for (RainDrop rd : listRain) {
-    rd.display(0);
+    rd.display();
     if (!platform1.rammerDen(rd) && !platform3.rammerDen(rd) && !platform4.rammerDen(rd) && !platform5.rammerDen(rd) && !platform6.rammerDen(rd) && !platform7.rammerDen(rd) && !platform8.rammerDen(rd) && !platform9.rammerDen(rd)) {
       rd.move();
     } if (rd.posRegn.y > height ) rd.udenfor = true;
       }
-      
-       for (int i = listRain.size()-1; i > 0; i--) {
-    if (listRain.size() > 0) {
-      RainDrop rd = listRain.get(i);
-      if (rd.udenfor) {
-        listRain.remove(rd);
-        //print("fjern!!!!");
-          } 
-        }
-       }
+      rainHit();
        
-       comp02();
+      comp02();
 }
 
 void comp02() {
        sky2.display(200, width-200, 15);
-       sky2.regn(10000, 0);
+       sky2.regn(10000, 0, 0);
        /*
        sky4.display(400, 450);
        sky4.regn(10000, 5000);

@@ -6,40 +6,14 @@ void Level01() {
     player.show();
     
     for (RainDrop rd : listRain) {
-    rd.display(0);
+    rd.display();
     if (!platform2.rammerDen(rd) && !platform1.rammerDen(rd)) {
       rd.move();
     } if (rd.posRegn.y > height ) rd.udenfor = true;
       }
       
-      for (RainDrop rd : listRain) {
-        rd.display(0);
-      if (player.Hitbox(rd)) {
-       player.xpos = 100;
-       attempts += 1;
-       
-       /*xspeed = 0;
-       cooldown = 0;*/
-        }
-      }
-    /*
-    if (cooldown < 30) {
-      cooldown++;
-    }
+    rainHit();
     
-    if (cooldown == 30) {
-      xspeed = 10;
-    } */
-    
-  for (int i = listRain.size()-1; i > 0; i--) {
-    if (listRain.size() > 0) {
-      RainDrop rd = listRain.get(i);
-      if (rd.udenfor) {
-        listRain.remove(rd);
-        //print("fjern!!!!");
-      } 
-    }
-  }
     comp01();
 }
 
@@ -51,7 +25,7 @@ void comp01(){
     
     //skyer
     sky1.display(1430, 1450, 5);
-    sky1.regn(10000, 5000);
+    sky1.regn(10000, 5000, 0);
     
     /*sky2.display(200, width-200);
     sky2.regn(10000, 0);*/

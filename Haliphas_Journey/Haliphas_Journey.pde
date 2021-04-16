@@ -1,4 +1,5 @@
 ArrayList<RainDrop> listRain = new ArrayList<RainDrop>(100);
+ArrayList<CoolDrop> listCool = new ArrayList<CoolDrop>(100);
 HeavyRain[] HR = new HeavyRain[100];
 
 int Phase = 0;
@@ -90,7 +91,6 @@ void draw(){
     break;
   case -1:
     //kode
-    
     break;
   default:
     Level00();
@@ -117,7 +117,11 @@ void draw(){
     Level04();
     Debug();
     break;
-   }
+  case 5:
+    Level05();
+    Debug();
+    break;
+    }
 }
 
 void mousePressed(){
@@ -197,6 +201,10 @@ void keyPressed(){
     break;
     
   case 4:
+    //kode
+    player.movement();
+    break;
+  case 5:
     //kode
     player.movement();
     break;

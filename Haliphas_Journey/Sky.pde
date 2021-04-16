@@ -8,17 +8,28 @@
      posSky = POS;
     }
 
-    void regn(int RainON, int RainOFF) {
+    void regn(int RainON, int RainOFF, int type) {
       lastMillis += milli;
       if (lastMillis > RainON) {
         lastMillis = 0;
       }
       
+      if (type == 0) {
       if(lastMillis > RainOFF) { 
       if (random(0, 1)< 0.5) {
         RainDrop rd = new RainDrop();
         rd.startRain((int)posSky.x, (int)posSky.y);
         listRain.add(rd);
+          }
+        }
+      }
+      if (type == 1) {
+      if(lastMillis > RainOFF) { 
+      if (random(0, 1)< 0.5) {
+        CoolDrop cd = new CoolDrop();
+        cd.startRain((int)posSky.x, (int)posSky.y);
+        listCool.add(cd);
+          }
         }
       }
     }

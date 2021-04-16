@@ -13,17 +13,9 @@
       posRegn.y = posRegn.y + speedRegn;
     }
 
-    void display(int type) {
+    void display() {
     stroke(0);
     strokeWeight(2);
-    
-    if (type == 0) {
     line(posRegn.x, posRegn.y, posRegn.x, posRegn.y+10);
-    }
-    
-    if (type == 1) {
-    fill(255);
-    rect(posRegn.x, posRegn.y, 20, 20);
       }
-    }
   }
