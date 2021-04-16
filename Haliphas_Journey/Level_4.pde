@@ -1,27 +1,33 @@
-void Level03() {
+void Level04() {
   //background(44,22,200);
   image(Background03, 0, 0);
   player.show();
   for (RainDrop rd : listRain) {
     rd.display();
-    if (!platform1.rammerDen(rd) && !platform10.rammerDen(rd)) {
+    if (!platform1.rammerDen(rd)) {
       rd.move();
     } if (rd.posRegn.y > height ) rd.udenfor = true;
       }
       
-      rainHit();
-  comp04();
+     rainHit();
+  comp03();
 }
 
-void comp04() {
-       sky8.display(200, width-200, 10);
-       sky8.regn(10000, 0, 0);
+void comp03() {
+       sky3.display(400, 450, 10);
+       sky3.regn(10000, 5000, 0);
        
-       sky9.display(200, width-200, 10);
-       sky9.regn(10000, 0, 0);
+       sky4.display(700, 750, 10);
+       sky4.regn(10000, 5000, 0);
        
-       sky10.display(200, width-200, 10);
-       sky10.regn(10000, 0, 0);
+       sky5.display(1000, 1050, 10);
+       sky5.regn(10000, 5000, 0);
+       
+       sky6.display(1300, 1350, 10);
+       sky6.regn(10000, 5000, 0);
+       
+       sky7.display(1600, 1650, 10);
+       sky7.regn(10000, 5000, 0);
        
        text("Attempts:" + attempts, 50, 50);
 }
