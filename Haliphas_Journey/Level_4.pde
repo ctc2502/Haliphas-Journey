@@ -30,9 +30,7 @@ void comp04() {
        sky8.display(1600, 1650, 10, cloud[3]);
        sky8.regn(10000, 5000, 0);
        
-       fill(255);
-       text("Attempts:" + attempts, 50, 50);
-       text("Time: "+swt.hour()+":"+swt.minute()+":"+swt.second(), 50, 150);
+       UI();
        
        //platformen
        fill(50);

@@ -28,9 +28,7 @@ void comp02() {
        sky2.display(250, 300, 5, cloud[1]);
        sky2.regn(5000, 2000, 1);
        
-       fill(255);
-       text("Attempts:" + attempts, 50, 50);
-       text("Time: "+swt.hour()+":"+swt.minute()+":"+swt.second(), 50, 150);
+       UI();
        
        //platformen
        fill(50);

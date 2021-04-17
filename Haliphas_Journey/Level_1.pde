@@ -1,5 +1,6 @@
 void Level01() {
   //background(244,200,189);
+  imageMode(0);
     image(Background[1], 0, 0);
     player.show();
     
@@ -22,12 +23,29 @@ void comp01(){
     sky1.display(1430, 1450, 5, cloud[3]);
     sky1.regn(10000, 5000, 0);
     
-    fill(255);
-    text("Attempts:" + attempts, 50, 50);
-    text("Time: "+swt.hour()+":"+swt.minute()+":"+swt.second(), 50, 150);
+    UI();
 
     //platformen
     fill(50);
     platform1.display();
     safeRoom("W, A & D to navigate through the rain...");
+}
+
+void UI() {
+  
+    if (hcMode == false) {
+    fill(255);
+    text("Attempts:" + attempts, 50, 50);
+    text("Time: "+swt.hour()+":"+swt.minute()+":"+swt.second(), 50, 150);
+    }
+    
+    if (hcMode == true) {
+    fill(255);
+    text("Durability:" + durability, 50, 50);
+    text("Times till 3 mins: "+ swt.minute()+":"+swt.second(), 50, 150);
+    println(swt.minute());
+    if (durability == 0 || swt.minute() == 3) {
+        Phase = -5;
+      }
+    }
 }

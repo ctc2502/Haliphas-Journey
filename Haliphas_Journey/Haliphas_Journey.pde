@@ -18,7 +18,7 @@ Player player;
 float velocity;
 float velocityconst;
 
-PImage Background00, Background01, Background02, Background03, Background04, Background06;
+PImage BackgroundMain, Backgroundhc;
 PImage[] Background = new PImage[7];
 PImage PlayerR, PlayerL;
 PImage[] WalkR = new PImage[7];
@@ -32,12 +32,15 @@ boolean hcToggle = false;
 
 PVector framePOS = new PVector(1300, -200);
 
+ int durability = 3;
+ int Countdown = 180;
+
 void setup() {
   frameRate(60);
   
   swt = new Timer();
   
-  button = loadImage("crossbones.png");
+  button = loadImage("crossbones.jpg");
   button.resize(100, 100);
   
   PlayerR = loadImage("DefaultR.png");
@@ -56,8 +59,12 @@ void setup() {
     Background[i].resize(width, height);
   }
   
-  Background00 = loadImage("Bruddas.bmp");
-  Background00.resize(width, height);
+  BackgroundMain = loadImage("Bruddas.bmp");
+  BackgroundMain.resize(width, height);
+  Backgroundhc = loadImage("hcBruddas.png");
+  Backgroundhc.resize(width, height);
+  
+ 
   
   fullScreen();
   //size(960,640); 
@@ -105,7 +112,8 @@ void draw() {
     break;
   case -5:
     //kode
-    
+    background(0);
+    typeWrite("How c#@ld this b%?...My precio#s...", width/2, height/2);
     break;
   case -4: 
     //kode
@@ -167,6 +175,9 @@ void draw() {
     background(0);
     typeWrite("Attempts: "+attempts, width/2, height/2);
     typeWrite("Time: "+swt.hour()+":"+swt.minute()+":"+swt.second(), width/2, height/2+100);
+    if (hcToggle == false) {
+    safeRoom("Hardcore Mode is now unlocked");
+    }
     break;
   }
 }
@@ -179,7 +190,12 @@ void mousePressed() {
     break;
   case -5:
     //kode
-    
+    Phase = 0;
+    subcnt = 0;
+    durability = 3;
+    Countdown = 180;
+    pettypts = 0;
+    hcMode = false;
     break;
   case -4: 
     //kode
@@ -208,6 +224,11 @@ void mousePressed() {
     subcnt = 0;
     attempts = 0;
     Debug();
+    if (hcToggle == true) {
+    if (AreaCheck(width-200, height-200, 100, 100)) {
+      hcMode = true;
+      } 
+    }
     break;  
   case 1:
     //kode
@@ -237,7 +258,8 @@ void mousePressed() {
     //kode
     Phase++;
     subcnt = 0;
-    hcMode = true;
+    hcMode = false;
+    hcToggle = true;
     break;
   }
 }
@@ -274,9 +296,9 @@ void keyPressed() {
     break;
   default:
     //kode
-    Phase = -4;
+    /*Phase = -4;
     subcnt = 0;
-    attempts = 0;
+    attempts = 0;*/
     break;  
   case 1:
     //kode

@@ -28,9 +28,7 @@ void comp05() {
        sky10.display(200, width-200, 10, cloud[1]);
        sky10.regn(4000, 2000, 1);
        
-       fill(255);
-       text("Attempts:" + attempts, 50, 50);
-       text("Time: "+swt.hour()+":"+swt.minute()+":"+swt.second(), 50, 150);
+       UI();
        
        //platformen
         fill(50);

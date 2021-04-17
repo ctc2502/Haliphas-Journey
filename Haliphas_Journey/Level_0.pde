@@ -1,78 +1,47 @@
 void Level00() {
-  image(Background00, 0, 0);
+  imageMode(0);
+  image(BackgroundMain, 0, 0);
     for(int i = 0; i < HR.length; i++) {
      HR[i].fall();
     }
-    if (hcMode == true) {
-    
+    if (hcToggle == true) {
+    if (AreaCheck(width-200, height-200, 100, 100)) {
+      imageMode(0);
+      image(Backgroundhc, 0, 0);
+      imageMode(CENTER);
+      image(button, width-200, height-200, 120, 120);
+      } else{
+      imageMode(CENTER);
+      image(button, width-200, height-200);
+      }
     }
-    typeWrite("Press any key to continue...", width/2, height/2);
+    typeWrite("Mouse click to start game...", width/2, height/2);
+    imageMode(0);
 }
 
-void rainHit() {
-  for (RainDrop rd : listRain) {
-        rd.display();
-      if (player.Hitbox(rd)) {
-       player.xpos = 100;
-       attempts += 1;
-       pettypts = 0;
-        }
+class HeavyRain {
+  PVector HeavyPos = new PVector(random(width), random(-500, -50));
+  float fallSpeed = random(4, 10);
+  float leng = random(10, 20);
+  
+  HeavyRain() {
+  }
+  
+  void fall() {
+    HeavyPos.y = HeavyPos.y + fallSpeed;
+    if (HeavyPos.y > height) {
+      HeavyPos.y = random(-200, 100);  
+      fallSpeed = random(4, 10);
       }
-      
-     for (int i = listRain.size()-1; i > 0; i--) {
-    if (listRain.size() > 0) {
-      RainDrop rd = listRain.get(i);
-      if (rd.udenfor) {
-        listRain.remove(rd);
-        //print("fjern!!!!");
-      } 
-    }
+    stroke(0, 90, 40);
+    line(HeavyPos.x, HeavyPos.y, HeavyPos.x, HeavyPos.y+10);
   }
 }
 
-void coolHit() {
-  for (CoolDrop cd : listCool) {
-        cd.display();
-      if (player.Hitbox(cd)) {
-       xspeed = 0;
-       cooldown = 0;
-        }
-      }
-    if (cooldown < 30) {
-      cooldown++;
-      text(1/cooldown, player.xpos, player.ypos);
-    }
-    if (cooldown == 30) {
-      xspeed = 8;
-    }
-    
-    for (int i = listCool.size()-1; i > 0; i--) {
-    if (listCool.size() > 0) {
-      CoolDrop cd = listCool.get(i);
-      if (cd.udenfor) {
-        listCool.remove(cd);
-        //print("fjern!!!!");
-      } 
+public boolean AreaCheck(float x, float y, float w, float h) {
+    if (mouseX > x-w/2 && mouseX < x+w/2 && mouseY < y+h/2 && mouseY > y-h/2) {
+      return true;
+    } else {
+      return false;
     }
   }
-}
-
-void petsHit() {
-  for (PetDrop pd : listPets) {
-        pd.display();
-      if (player.Hitbox(pd)) {
-        if (pettypts < 3) {
-         pettypts++;
-          }
-        }
-    }
-
-    for (int i = listPets.size()-1;   i > 0; i--) {
-    if (listPets.size() > 0) {
-      PetDrop pd = listPets.get(i);
-      if (player.Hitbox(pd) || pd.udenfor) {
-        listPets.remove(pd);
-      }
-    }
-  } 
-}

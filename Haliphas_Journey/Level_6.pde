@@ -46,11 +46,7 @@ void comp06() {
        sky14.display(200, width-200, 10, cloud[2]);
        sky14.regn(2250, 2000, 2);
        
-       fill(255);
-       text("Attempts:" + attempts, 50, 50);
-       text("Time: "+swt.hour()+":"+swt.minute()+":"+swt.second(), 50, 150);
-       
-       
+       UI();
        //platformen
        fill(50);
        platform1.display();
