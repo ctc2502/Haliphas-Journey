@@ -35,10 +35,10 @@ void comp06() {
   
        //skyer
        sky12.display(410, 710, 5, cloud[3]);
-       sky12.regn(10000, 5000, 0);
+       sky12.regn(10000, 7000, 0);
        
        sky13.display(1230, 1530, 5, cloud[3]);
-       sky13.regn(10000, 5000, 0);
+       sky13.regn(10000, 7000, 0);
        
        sky10.display(200, width-200, 10, cloud[1]);
        sky10.regn(4000, 2000, 1);

@@ -20,12 +20,15 @@ float velocityconst;
 
 PImage Background00, Background01, Background02, Background03, Background04, Background06;
 PImage[] Background = new PImage[7];
-PImage Halipha, frame;
+PImage PlayerR, PlayerL;
 PImage[] WalkR = new PImage[7];
 PImage[] WalkL = new PImage[7];
 PImage[] cloud = new PImage[4];
-PImage hail;
-PImage pet;
+PImage hail, pet;
+PImage button, frame;
+
+boolean hcMode = false;
+boolean hcToggle = false;
 
 PVector framePOS = new PVector(1300, -200);
 
@@ -34,8 +37,13 @@ void setup() {
   
   swt = new Timer();
   
-  Halipha = loadImage("DefaultR.png");
-  Halipha.resize(100, 100);
+  button = loadImage("crossbones.png");
+  button.resize(100, 100);
+  
+  PlayerR = loadImage("DefaultR.png");
+  PlayerR.resize(100, 100);
+  PlayerL = loadImage("DefaultL.png");
+  PlayerL.resize(100, 100);
 
   pet = loadImage("cat.png");
   pet.resize(820/16, 651/16);
@@ -50,7 +58,7 @@ void setup() {
   
   Background00 = loadImage("Bruddas.bmp");
   Background00.resize(width, height);
-
+  
   fullScreen();
   //size(960,640); 
   
@@ -229,6 +237,7 @@ void mousePressed() {
     //kode
     Phase++;
     subcnt = 0;
+    hcMode = true;
     break;
   }
 }
@@ -260,8 +269,8 @@ void keyPressed() {
     break;
   case -1:
     //kode
-    Phase = 1;
-    subcnt = 0;
+    /*Phase = 1;
+    subcnt = 0;*/
     break;
   default:
     //kode

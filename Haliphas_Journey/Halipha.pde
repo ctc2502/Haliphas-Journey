@@ -45,7 +45,12 @@ class Player {
         }
       } 
       if (key != 'D' && key != 'd' && key != 'A' && key != 'a') {
-      image(Halipha, xpos, ypos);
+        if (direction) {
+        image(PlayerR, xpos, ypos);
+        }
+        if (!direction) {
+        image(PlayerL, xpos, ypos);
+        }
       }
       //Hitbox
       /* noFill();

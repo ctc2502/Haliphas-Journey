@@ -3,7 +3,9 @@ void Level00() {
     for(int i = 0; i < HR.length; i++) {
      HR[i].fall();
     }
+    if (hcMode == true) {
     
+    }
     typeWrite("Press any key to continue...", width/2, height/2);
 }
 
