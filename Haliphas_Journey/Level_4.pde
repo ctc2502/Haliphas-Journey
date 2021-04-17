@@ -1,6 +1,6 @@
 void Level04() {
   //background(44,22,200);
-  image(Background04, 0, 0);
+  image(Background[4], 0, 0);
   player.show();
   for (RainDrop rd : listRain) {
     rd.display();
@@ -14,6 +14,7 @@ void Level04() {
 }
 
 void comp04() {
+       //skyer
        sky4.display(400, 450, 10);
        sky4.regn(10000, 5000, 0);
        
@@ -31,5 +32,9 @@ void comp04() {
        
        fill(255);
        text("Attempts:" + attempts, 50, 50);
+       
+       //platformen
+       fill(50);
        platform1.display();
+       safeRoom("Is this the work of global warming?");
 }

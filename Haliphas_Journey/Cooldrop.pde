@@ -7,6 +7,7 @@
     stroke(0);
     strokeWeight(2);
     fill(255);
-    rect(posRegn.x, posRegn.y, 20, 20);
+    //rect(posRegn.x, posRegn.y, 20, 20);
+    image(hail, posRegn.x, posRegn.y);
       }
   }

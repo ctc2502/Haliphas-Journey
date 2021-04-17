@@ -3,7 +3,7 @@ void Level00() {
     for(int i = 0; i < HR.length; i++) {
      HR[i].fall();
     }
- 
+    
     typeWrite("Press any key to continue...", width/2, height/2);
 }
 
@@ -38,6 +38,7 @@ void coolHit() {
       }
     if (cooldown < 30) {
       cooldown++;
+      text(1/cooldown, player.xpos, player.ypos);
     }
     if (cooldown == 30) {
       xspeed = 8;

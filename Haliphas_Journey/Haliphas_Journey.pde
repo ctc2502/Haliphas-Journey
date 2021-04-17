@@ -18,12 +18,15 @@ float velocity;
 float velocityconst;
 
 PImage Background00, Background01, Background02, Background03, Background04, Background06;
+PImage[] Background = new PImage[7];
 PImage Halipha, frame;
 PImage[] WalkR = new PImage[7];
 PImage[] WalkL = new PImage[7];
 PImage cloud0;
+PImage hail;
+PImage pet;
 
-PVector framePOS = new PVector(900, -200);
+PVector framePOS = new PVector(1300, -200);
 
 void setup() {
   frameRate(60);
@@ -31,32 +34,27 @@ void setup() {
   Halipha = loadImage("DefaultR.png");
   Halipha.resize(100, 100);
 
+  pet = loadImage("cat.png");
+  pet.resize(820/16, 651/16);
+
   frame = loadImage("Frame.png");
-  frame.resize(1200, 100);
+  frame.resize(1200, 250);
+  
+  for(int i = 1; i < Background.length; i++) {
+    Background[i] = loadImage("Background"+i+".png");
+    Background[i].resize(width, height);
+  }
   
   Background00 = loadImage("Bruddas.bmp");
   Background00.resize(width, height);
-
-  Background01 = loadImage("Background1.png");
-  Background01.resize(width, height);
-
-  Background02 = loadImage("Background2.png");
-  Background02.resize(width, height);
-
-  Background03 = loadImage("Background3.png");
-  Background03.resize(width, height);
-
-  Background04 = loadImage("Background4.png");
-  Background04.resize(width, height);
-
-  Background06 = loadImage("Background6.png");
-  Background06.resize(width, height);
 
   fullScreen();
   //size(960,640); 
 
   cloud0 = loadImage("CloudSprite0.png");
-
+  
+  hail = loadImage("Snowball.png");
+  hail.resize(20, 20);
 
   font = createFont("NewTegomin.ttf", 40); 
   textFont(font);
@@ -90,15 +88,23 @@ void draw() {
   switch(Phase) {
   case -6:
     //kode
+    background(0);
+    typeWrite("My precious...", width/2, height/2);
     break;
   case -5:
     //kode
+    background(0);
+    typeWrite("...My finest work yet", width/2, height/2);
     break;
   case -4: 
     //kode
+    background(0);
+    typeWrite("I must...", width/2, height/2);
     break;
   case -3:
     //kode
+    background(0);
+    typeWrite("TREASURE THIS!!!", width/2, height/2);
     break;
   case -2:
     //kode
@@ -138,6 +144,14 @@ void draw() {
     Level06();
     Debug();
     break;
+  case 7:
+    background(0);
+    typeWrite("At last ... another gem added to my collection", width/2, height/2);
+    break;
+  case 8:
+    background(0);
+    typeWrite("Attempts: "+attempts, width/2, height/2);
+    break;
   }
 }
 
@@ -145,15 +159,23 @@ void mousePressed() {
   switch(Phase) {
   case -6:
     //kode
+    Phase = -5;
+    subcnt = 0;
     break;
   case -5:
     //kode
+    Phase = -4;
+    subcnt = 0;
     break;
   case -4: 
     //kode
+    Phase = -3;
+    subcnt = 0;
     break;
   case -3:
     //kode
+    Phase = 1;
+    subcnt = 0;
     break;
   case -2:
     //kode
@@ -163,7 +185,7 @@ void mousePressed() {
     break;
   default:
     //kode
-    Phase = 1;
+    Phase = -6;
     subcnt = 0;
     attempts = 0;
     Debug();
@@ -186,6 +208,16 @@ void mousePressed() {
   case 6:
     //kode
     break;
+  case 7:
+    //kode
+    Phase++;
+    subcnt = 0;
+    break;
+  case 8:
+    //kode
+    Phase++;
+    subcnt = 0;
+    break;
   }
 }
 
@@ -193,15 +225,23 @@ void keyPressed() {
   switch(Phase) {
   case -6:
     //kode
+    Phase = -5;
+    subcnt = 0;
     break;
   case -5:
     //kode
+    Phase = -4;
+    subcnt = 0;
     break;
   case -4: 
     //kode
+    Phase = -3;
+    subcnt = 0;
     break;
   case -3:
     //kode
+    Phase = 1;
+    subcnt = 0;
     break;
   case -2:
     //kode
@@ -239,7 +279,18 @@ void keyPressed() {
     //kode
     player.movement();
     break;
+  case 7:
+    //kode
+    Phase++;
+    subcnt = 0;
+    break;
+  case 8:
+    //kode
+    Phase++;
+    subcnt = 0;
+    break;
   }
+  
 }
 
 void keyReleased() {  
@@ -267,10 +318,10 @@ void safeRoom(String hints) {
   fill(255);
   typeWrite(hints, (int)framePOS.x+75, (int)framePOS.y);
   if (player.xpos < 200) {
-    if (framePOS.y < 50) {
+    if (framePOS.y < 40) {
       framePOS.y += 10;
     } 
-  } else if(framePOS.y > -100) {
+  } else if(framePOS.y > -200) {
       framePOS.y -= 10; 
     }
   imageMode(0);
@@ -279,6 +330,7 @@ void safeRoom(String hints) {
 
 void typeWrite(String msg, int x, int y) {
   textAlign(CENTER);
+  fill(255);
   text (msg.substring(0, constrain(int(subcnt/5), 0, msg.length())), x, y);
   //println(subcnt);
   subcnt++;

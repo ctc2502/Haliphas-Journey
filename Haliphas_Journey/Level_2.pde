@@ -1,6 +1,6 @@
 void Level02() {
   //background(144,255,9);
-    image(Background02, 0, 0);
+    image(Background[2], 0, 0);
     player.show();
       for (RainDrop rd : listRain) {
     rd.display();
@@ -18,6 +18,7 @@ void Level02() {
   rainHit();
   coolHit();
       comp02();
+      
 }
 
 void comp02() {
@@ -29,5 +30,9 @@ void comp02() {
        
        fill(255);
        text("Attempts:" + attempts, 50, 50);
+       
+       //platformen
+       fill(50);
        platform1.display();
+       safeRoom("...Downpour comes in many forms\nSome are simply stunning, others are DESTRUCTIVE");
 }

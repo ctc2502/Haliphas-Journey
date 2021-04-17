@@ -1,5 +1,5 @@
 void Level06() {
-  image(Background06, 0, 0);
+  image(Background[6], 0, 0);
   player.show();
   for (RainDrop rd : listRain) {
     rd.display();
@@ -29,6 +29,11 @@ void Level06() {
 }
 
 void comp06() {
+       fill(255);
+       text(pettypts + " / 3      to proceed", 50, 150);
+       image(pet, 50+100, 115, 820/15, 651/15);      
+  
+       //skyer
        sky12.display(410, 710, 5);
        sky12.regn(10000, 5000, 0);
        
@@ -43,7 +48,10 @@ void comp06() {
        
        fill(255);
        text("Attempts:" + attempts, 50, 50);
-       text(pettypts + " / 3", width/2, 150);
+       
+       
+       //platformen
+       fill(50);
        platform1.display();
-       platform11.display();
+       safeRoom("It's raining cats, but no dogs?!\nHow bizarre - Cats don't like water...");
 }

@@ -25,7 +25,7 @@ class Sky {
     }
     if (type == 1) {
       if (lastMillis > RainOFF) { 
-        if (random(0, 1)< 0.5) {
+        if (random(0, 1)< 0.25) {
           CoolDrop cd = new CoolDrop();
           cd.startRain((int)posSky.x, (int)posSky.y);
           listCool.add(cd);

@@ -71,6 +71,7 @@ class Player {
             xpos = 0 + (xspeed - remainder);
             Phase++;
             subcnt = 0;
+            pettypts = 0;
             }
         } else if ((xpos - xspeed) < -45 && !(dir)) {
             //float remainder = xpos - 0;

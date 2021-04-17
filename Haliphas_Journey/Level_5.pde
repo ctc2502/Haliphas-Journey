@@ -1,5 +1,5 @@
 void Level05() {
-  image(Background03, 0, 0);
+  image(Background[5], 0, 0);
   player.show();
   for (RainDrop rd : listRain) {
     rd.display();
@@ -21,6 +21,7 @@ void Level05() {
 }
 
 void comp05() {
+       //skyer
        sky9.display(-200, width+200, 10);
        sky9.regn(10000, 0, 0);
        
@@ -29,5 +30,9 @@ void comp05() {
        
        fill(255);
        text("Attempts:" + attempts, 50, 50);
+       
+       //platformen
+        fill(50);
        platform1.display();
+       safeRoom("What the h%#@ happened here?");
 }
