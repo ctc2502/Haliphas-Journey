@@ -1,6 +1,5 @@
 void Level01() {
-  //background(244,200,189);
-  imageMode(0);
+    imageMode(0);
     image(Background[1], 0, 0);
     player.show();
     
@@ -8,7 +7,7 @@ void Level01() {
     rd.display();
     if (!platform2.rammerDen(rd) && !platform1.rammerDen(rd)) {
       rd.move();
-    } if (rd.posRegn.y > height ) rd.udenfor = true;
+    } if (rd.posRain.y > height ) rd.udenfor = true;
       }
       
     rainHit();

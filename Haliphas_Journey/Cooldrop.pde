@@ -1,5 +1,6 @@
  class CoolDrop extends RainDrop {
-     
+   
+   //Snenedbør - Display
    CoolDrop(){
    }
    
@@ -8,6 +9,6 @@
     strokeWeight(2);
     fill(255);
     //rect(posRegn.x, posRegn.y, 20, 20);
-    image(hail, posRegn.x, posRegn.y);
+    image(hail, posRain.x, posRain.y);
       }
   }

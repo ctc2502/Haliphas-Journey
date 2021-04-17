@@ -5,21 +5,21 @@ void Level06() {
     rd.display();
     if (!platform1.rammerDen(rd) && !platform11.rammerDen(rd) &&  !platform12.rammerDen(rd)) {
       rd.move();
-    } if (rd.posRegn.y > height ) rd.udenfor = true;
+    } if (rd.posRain.y > height ) rd.udenfor = true;
       }
       
       for (CoolDrop cd : listCool) {
     cd.display();
     if (!platform1.rammerDen(cd) && !platform11.rammerDen(cd) && !platform12.rammerDen(cd)) {
       cd.move();
-    } if (cd.posRegn.y > height ) cd.udenfor = true;
+    } if (cd.posRain.y > height ) cd.udenfor = true;
       }
   
   for (PetDrop pd : listPets) {
     pd.display();
     if (!platform1.rammerDen(pd) && !platform11.rammerDen(pd) && !platform12.rammerDen(pd)) {
       pd.move();
-    } if (pd.posRegn.y > height ) pd.udenfor = true;
+    } if (pd.posRain.y > height ) pd.udenfor = true;
       }
   
   rainHit();
@@ -29,6 +29,7 @@ void Level06() {
 }
 
 void comp06() {
+       //FinaleBoss
        fill(255);
        text(pettypts + " / 3      to proceed", 50, 250);
        image(pet, 50+100, 215, 820/15, 651/15);      

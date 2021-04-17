@@ -1,23 +1,23 @@
 class Platform {
     int h;
-    int b;
+    int w;
     int x; 
     int y;
     
-    Platform(int X, int Y, int B, int H) {
+    Platform(int X, int Y, int W, int H) {
     x = X;
     y = Y;
-    b = B;
+    w = W;
     h = H;
     }
     
     void display() {
-      rect(x, y, b, h);
+      rect(x, y, w, h);
     }
 
     boolean rammerDen(RainDrop rd) {
-      boolean indenforX = rd.posRegn.x >= x && rd.posRegn.x <=  x + b;
-      boolean indenforY = rd.posRegn.y >= y && rd.posRegn.y <= y + h;
+      boolean indenforX = rd.posRain.x >= x && rd.posRain.x <=  x + w;
+      boolean indenforY = rd.posRain.y >= y && rd.posRain.y <= y + h;
 
       return indenforX && indenforY;
     }

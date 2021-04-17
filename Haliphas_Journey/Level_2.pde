@@ -1,23 +1,23 @@
 void Level02() {
-  //background(144,255,9);
+    imageMode(0);
     image(Background[2], 0, 0);
     player.show();
       for (RainDrop rd : listRain) {
     rd.display();
     if (!platform1.rammerDen(rd) && !platform3.rammerDen(rd) && !platform4.rammerDen(rd) && !platform5.rammerDen(rd) && !platform6.rammerDen(rd) && !platform7.rammerDen(rd) && !platform8.rammerDen(rd) && !platform9.rammerDen(rd)) {
       rd.move();
-    } if (rd.posRegn.y > height ) rd.udenfor = true;
+    } if (rd.posRain.y > height ) rd.udenfor = true;
       }
       for (CoolDrop cd : listCool) {
     cd.display();
     if (!platform1.rammerDen(cd)) {
       cd.move();
-    } if (cd.posRegn.y > height ) cd.udenfor = true;
+    } if (cd.posRain.y > height ) cd.udenfor = true;
       }
   
   rainHit();
   coolHit();
-      comp02();
+  comp02();
       
 }
 

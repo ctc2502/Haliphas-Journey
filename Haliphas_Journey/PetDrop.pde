@@ -1,6 +1,7 @@
  class PetDrop extends RainDrop {
-     
-   PetDrop(){
+   
+   //Kæledyrnedbør - Display
+   PetDrop() {
    }
    
     void display() {
@@ -8,6 +9,6 @@
     strokeWeight(2);
     fill(200, 200, 0);
     //rect(posRegn.x, posRegn.y, 20, 20);
-    image(pet, posRegn.x, posRegn.y);
+    image(pet, posRain.x, posRain.y);
       }
   }

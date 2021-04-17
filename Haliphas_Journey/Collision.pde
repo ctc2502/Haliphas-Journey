@@ -1,3 +1,4 @@
+//// ASSETS
 //Skyer
 Sky sky1 = new Sky(new PVector(1430, 500));
 
@@ -33,6 +34,7 @@ Platform platform10 = new Platform(900, 800, 100, 10);
 Platform platform11 = new Platform(720, 825, 150, 10);
 Platform platform12 = new Platform(1080, 825, 150, 10);
 
+//Regn nedbør - Collisions
 void rainHit() {
   for (RainDrop rd : listRain) {
         rd.display();
@@ -58,6 +60,7 @@ void rainHit() {
   }
 }
 
+//Sne nedbør - Collisions
 void coolHit() {
   for (CoolDrop cd : listCool) {
         cd.display();
@@ -85,6 +88,7 @@ void coolHit() {
   }
 }
 
+//Kæledyrsnedbør - Collisions
 void petsHit() {
   for (PetDrop pd : listPets) {
         pd.display();

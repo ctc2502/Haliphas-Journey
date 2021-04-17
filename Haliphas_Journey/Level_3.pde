@@ -1,12 +1,12 @@
 void Level03() {
-  //background(44,22,200);
+  imageMode(0);
   image(Background[3], 0, 0);
   player.show();
   for (RainDrop rd : listRain) {
     rd.display();
     if (!platform1.rammerDen(rd) && !platform10.rammerDen(rd)) {
       rd.move();
-    } if (rd.posRegn.y > height ) rd.udenfor = true;
+    } if (rd.posRain.y > height ) rd.udenfor = true;
       }
       
       rainHit();

@@ -9,11 +9,8 @@ class Player {
     
   Player(float xPos, float yPos) {
     r = 45;
-    //x = 50;
     xpos = xPos;
     ypos = yPos;
-    //xspeed = xSpeed;
-    
   }
 
   void movement() {
@@ -52,15 +49,6 @@ class Player {
         image(PlayerL, xpos, ypos);
         }
       }
-      //Hitbox
-      /* noFill();
-      rect(xpos+25, ypos+25, r, r); */
-      //} 
-     //drive();
-     //fill(255, 50);
-    // ellipseMode(CORNER);
-   //  ellipse(x, y, r, r);
-   
        if(shift == true) {
       player.drive(direction);
     }
@@ -72,8 +60,8 @@ class Player {
   void drive(boolean dir) {
         if ((xpos + xspeed) > width-45 && (dir)) {
             if (pettypts >= 3 || Phase != 6) {
-            float remainder = float(width) - xpos;
-            xpos = 0 + (xspeed - remainder);
+            float rest = float(width) - xpos;
+            xpos = 0 + (xspeed - rest);
             Phase++;
             subcnt = 0;
             pettypts = 0;
@@ -92,7 +80,7 @@ class Player {
         if(ypos + velocity > (jreq)) {
             ypos = jreq;
             jump = false;
-            velocity = velocityconst;
+            velocity = velocitycst;
         } else {
             ypos += velocity;
         }
@@ -100,17 +88,15 @@ class Player {
     
     void releaz() {
       if (key == 'A' || key == 'a' || key == 'D' || key == 'd') {
-        shift = false;
-        
+        shift = false; 
+          }
       }
-      //image(Halipha, xpos, ypos); 
-    }
     
     boolean Hitbox(RainDrop rd) {
-      boolean indenforX = rd.posRegn.x >= xpos+25 && rd.posRegn.x <=  xpos+25 + r;
-      boolean indenforY = rd.posRegn.y >= ypos+25 && rd.posRegn.y <= ypos+25 + r;
+      boolean withinX = rd.posRain.x >= xpos+25 && rd.posRain.x <=  xpos+25 + r;
+      boolean withinY = rd.posRain.y >= ypos+25 && rd.posRain.y <= ypos+25 + r;
 
-      return indenforX && indenforY;
+      return withinX && withinY;
     }
    
 }

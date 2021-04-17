@@ -1,6 +1,7 @@
 ArrayList<RainDrop> listRain = new ArrayList<RainDrop>();
 ArrayList<CoolDrop> listCool = new ArrayList<CoolDrop>();
 ArrayList<PetDrop> listPets = new ArrayList<PetDrop>();
+
 HeavyRain[] HR = new HeavyRain[100];
 Timer swt;
 
@@ -16,7 +17,7 @@ PFont font;
 
 Player player;
 float velocity;
-float velocityconst;
+float velocitycst;
 
 PImage BackgroundMain, Backgroundhc;
 PImage[] Background = new PImage[7];
@@ -37,19 +38,18 @@ PVector framePOS = new PVector(1300, -200);
 
 void setup() {
   frameRate(60);
+  fullScreen();
+  //size(960,640); 
   
   swt = new Timer();
   
   button = loadImage("crossbones.jpg");
   button.resize(100, 100);
-  
-  PlayerR = loadImage("DefaultR.png");
-  PlayerR.resize(100, 100);
-  PlayerL = loadImage("DefaultL.png");
-  PlayerL.resize(100, 100);
 
   pet = loadImage("cat.png");
   pet.resize(820/16, 651/16);
+  hail = loadImage("Snowball.png");
+  hail.resize(20, 20);
 
   frame = loadImage("Frame.png");
   frame.resize(1200, 250);
@@ -64,31 +64,25 @@ void setup() {
   Backgroundhc = loadImage("hcBruddas.png");
   Backgroundhc.resize(width, height);
   
- 
-  
-  fullScreen();
-  //size(960,640); 
-  
   for(int i = 0; i < cloud.length; i++) {
     cloud[i] = loadImage("CloudSprite"+i+".png");
     //cloud[i].resize(500, 500);
   }
-  
-  hail = loadImage("Snowball.png");
-  hail.resize(20, 20);
 
   font = createFont("NewTegomin.ttf", 40); 
   textFont(font);
   strokeWeight(2);
 
-
+  PlayerR = loadImage("DefaultR.png");
+  PlayerR.resize(100, 100);
+  PlayerL = loadImage("DefaultL.png");
+  PlayerL.resize(100, 100);
   player = new Player(0, 870);
-  velocityconst = -8.0;
-  velocity = velocityconst;
+  velocitycst = -8.0;
+  velocity = velocitycst;
   for (int i = 0; i < HR.length; i++) {
     HR[i] = new HeavyRain();
   }
-  //smooth();
 
   for (int i = 0; i < WalkR.length; i++) {
     WalkR[i] = loadImage( "Walk" + i + "R" + ".png");
@@ -98,40 +92,34 @@ void setup() {
     WalkL[i] = loadImage( "Walk" + i + "L" + ".png");
     WalkL[i].resize(100, 100);
   }
+  smooth();
 }
 
 void draw() {
   clear();
-
-  //image(Baggrund01, 0, 0);
-  //println(shift, " ", jump);
-
   switch(Phase) {
-  case -6:
-    //kode
-    break;
   case -5:
-    //kode
+    //GameOver - Draw
     background(0);
     typeWrite("How c#@ld this b%?...My precio#s...", width/2, height/2);
     break;
   case -4: 
-    //kode
+    //Story(1) - Draw
     background(0);
     typeWrite("My precious...", width/2, height/2);
     break;
   case -3:
-    //kode
+    //Story(2) - Draw
     background(0);
     typeWrite("...My finest work yet", width/2, height/2);
     break;
   case -2:
-    //kode
+    //Story(3) - Draw
     background(0);
     typeWrite("I must...", width/2, height/2);
     break;
   case -1:
-    //kode
+    //Story(4) - Draw
     background(0);
     typeWrite("TREASURE THIS!!!", width/2, height/2);
     break;
@@ -168,10 +156,12 @@ void draw() {
     Debug();
     break;
   case 7:
+    //WinScreen - Draw
     background(0);
     typeWrite("At last ... another gem added to my collection", width/2, height/2);
     break;
   case 8:
+    //WinStats - Draw
     background(0);
     typeWrite("Attempts: "+attempts, width/2, height/2);
     typeWrite("Time: "+swt.hour()+":"+swt.minute()+":"+swt.second(), width/2, height/2+100);
@@ -184,12 +174,8 @@ void draw() {
 
 void mousePressed() {
   switch(Phase) {
-  case -6:
-    //kode
-    
-    break;
   case -5:
-    //kode
+    //GameOver - mousePressed
     Phase = 0;
     subcnt = 0;
     durability = 3;
@@ -198,17 +184,17 @@ void mousePressed() {
     hcMode = false;
     break;
   case -4: 
-    //kode
+    //Story(1) - mousePressed
     Phase++;
     subcnt = 0;
     break;
   case -3:
-    //kode
+    //Story(2) - mousePressed
     Phase++;
     subcnt = 0;
     break;
   case -2:
-    //kode
+    //Story(3) - mousePressed
     Phase++;
     subcnt = 0;
     swt.start();
@@ -231,22 +217,22 @@ void mousePressed() {
     }
     break;  
   case 1:
-    //kode
+    //Level 1
     break;  
   case 2:
-    //kode
+    //Level 2
     break;
   case 3:
-    //kode
+    //Level 3
     break;
   case 4:
-    //kode
+    //Level 4
     break;
   case 5:
-    //kode
+    //Level 5
     break;
   case 6:
-    //kode
+    //Level 6
     break;
   case 7:
     //kode
@@ -266,39 +252,7 @@ void mousePressed() {
 
 void keyPressed() {
   switch(Phase) {
-  case -6:
-    //kode
-    
-    break;
-  case -5:
-    //kode
-    
-    break;
-  case -4: 
-    //kode
-    /*Phase++;
-    subcnt = 0;*/
-    break;
-  case -3:
-    //kode
-    /*Phase++;
-    subcnt = 0;*/
-    break;
-  case -2:
-    //kode
-    /*Phase++;
-    subcnt = 0;*/
-    break;
-  case -1:
-    //kode
-    /*Phase = 1;
-    subcnt = 0;*/
-    break;
   default:
-    //kode
-    /*Phase = -4;
-    subcnt = 0;
-    attempts = 0;*/
     break;  
   case 1:
     //kode
@@ -324,37 +278,29 @@ void keyPressed() {
     //kode
     player.movement();
     break;
-  case 7:
-    //kode
-    /*Phase++;
-    subcnt = 0;*/
-    break;
-  case 8:
-    //kode
-    /*Phase++;
-    subcnt = 0;*/
-    break;
   }
   
 }
 
 void keyReleased() {  
-  //if (Phase > 1) {
   player.releaz();
+  //Debug
+  /*
   if (keyCode == RIGHT) {
    Phase++;
-  }
+  }*/
 }
 
 void Debug() {
   //Debug
+  /*
   if (mouseButton == RIGHT) {
     ellipse( mouseX, mouseY, 2, 2 );
     fill(0);
     text( "x: " + mouseX + " y: " + mouseY, mouseX + 2, mouseY );
     text(frameRate, mouseX+64, mouseY+64);
     fill(255);
-  }
+  } */
 }
 
 void safeRoom(String hints) {

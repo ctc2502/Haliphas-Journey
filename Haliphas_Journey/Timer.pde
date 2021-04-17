@@ -1,19 +1,23 @@
 class Timer {
   int startTime = 0, stopTime = 0;
-  boolean running = false; 
+  boolean run = false; 
+  
+  //Timer
+  Timer(){
+  }
   
   void start() {
     startTime = millis();
-    running = true;
+    run = true;
   }
   
   void stop() {
     stopTime = millis();
-    running = false;
+    run = false;
   }
   int getElapsedTime() {
     int elapsed;
-    if (running) {
+    if (run) {
       elapsed = (millis() - startTime);
     }
     else {

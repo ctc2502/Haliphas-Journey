@@ -35,8 +35,8 @@ class HeavyRain {
       }
     stroke(0, 90, 40);
     line(HeavyPos.x, HeavyPos.y, HeavyPos.x, HeavyPos.y+10);
+    }
   }
-}
 
 public boolean AreaCheck(float x, float y, float w, float h) {
     if (mouseX > x-w/2 && mouseX < x+w/2 && mouseY < y+h/2 && mouseY > y-h/2) {
