@@ -15,17 +15,18 @@ void Level03() {
 
 void comp03() {
        //skyer
-       sky9.display(200, width-200, 10);
+       sky9.display(200, width-200, 10, cloud[3]);
        sky9.regn(10000, 0, 0);
        
-       sky10.display(200, width-200, 10);
+       sky10.display(200, width-200, 10, cloud[3]);
        sky10.regn(10000, 0, 0);
        
-       sky11.display(200, width-200, 10);
+       sky11.display(200, width-200, 10, cloud[3]);
        sky11.regn(10000, 0, 0);
        
        fill(255);
        text("Attempts:" + attempts, 50, 50);
+       text("Time: "+swt.hour()+":"+swt.minute()+":"+swt.second(), 50, 150);
        
        //platformen
        fill(50);

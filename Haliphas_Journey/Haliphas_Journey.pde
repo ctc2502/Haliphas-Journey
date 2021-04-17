@@ -2,6 +2,7 @@ ArrayList<RainDrop> listRain = new ArrayList<RainDrop>();
 ArrayList<CoolDrop> listCool = new ArrayList<CoolDrop>();
 ArrayList<PetDrop> listPets = new ArrayList<PetDrop>();
 HeavyRain[] HR = new HeavyRain[100];
+Timer swt;
 
 int Phase = 0;
 int attempts = 0;
@@ -22,7 +23,7 @@ PImage[] Background = new PImage[7];
 PImage Halipha, frame;
 PImage[] WalkR = new PImage[7];
 PImage[] WalkL = new PImage[7];
-PImage cloud0;
+PImage[] cloud = new PImage[4];
 PImage hail;
 PImage pet;
 
@@ -30,6 +31,8 @@ PVector framePOS = new PVector(1300, -200);
 
 void setup() {
   frameRate(60);
+  
+  swt = new Timer();
   
   Halipha = loadImage("DefaultR.png");
   Halipha.resize(100, 100);
@@ -50,8 +53,11 @@ void setup() {
 
   fullScreen();
   //size(960,640); 
-
-  cloud0 = loadImage("CloudSprite0.png");
+  
+  for(int i = 0; i < cloud.length; i++) {
+    cloud[i] = loadImage("CloudSprite"+i+".png");
+    //cloud[i].resize(500, 500);
+  }
   
   hail = loadImage("Snowball.png");
   hail.resize(20, 20);
@@ -88,29 +94,30 @@ void draw() {
   switch(Phase) {
   case -6:
     //kode
-    background(0);
-    typeWrite("My precious...", width/2, height/2);
     break;
   case -5:
     //kode
-    background(0);
-    typeWrite("...My finest work yet", width/2, height/2);
+    
     break;
   case -4: 
     //kode
     background(0);
-    typeWrite("I must...", width/2, height/2);
+    typeWrite("My precious...", width/2, height/2);
     break;
   case -3:
     //kode
     background(0);
-    typeWrite("TREASURE THIS!!!", width/2, height/2);
+    typeWrite("...My finest work yet", width/2, height/2);
     break;
   case -2:
     //kode
+    background(0);
+    typeWrite("I must...", width/2, height/2);
     break;
   case -1:
     //kode
+    background(0);
+    typeWrite("TREASURE THIS!!!", width/2, height/2);
     break;
   default:
     Level00();
@@ -151,6 +158,7 @@ void draw() {
   case 8:
     background(0);
     typeWrite("Attempts: "+attempts, width/2, height/2);
+    typeWrite("Time: "+swt.hour()+":"+swt.minute()+":"+swt.second(), width/2, height/2+100);
     break;
   }
 }
@@ -159,33 +167,36 @@ void mousePressed() {
   switch(Phase) {
   case -6:
     //kode
-    Phase = -5;
-    subcnt = 0;
+    
     break;
   case -5:
     //kode
-    Phase = -4;
-    subcnt = 0;
+    
     break;
   case -4: 
     //kode
-    Phase = -3;
+    Phase++;
     subcnt = 0;
     break;
   case -3:
     //kode
-    Phase = 1;
+    Phase++;
     subcnt = 0;
     break;
   case -2:
     //kode
+    Phase++;
+    subcnt = 0;
+    swt.start();
     break;
   case -1:
     //kode
+    Phase = 1;
+    subcnt = 0;
     break;
   default:
     //kode
-    Phase = -6;
+    Phase = -4;
     subcnt = 0;
     attempts = 0;
     Debug();
@@ -212,6 +223,7 @@ void mousePressed() {
     //kode
     Phase++;
     subcnt = 0;
+    swt.stop();
     break;
   case 8:
     //kode
@@ -225,33 +237,35 @@ void keyPressed() {
   switch(Phase) {
   case -6:
     //kode
-    Phase = -5;
-    subcnt = 0;
+    
     break;
   case -5:
     //kode
-    Phase = -4;
-    subcnt = 0;
+    
     break;
   case -4: 
     //kode
-    Phase = -3;
-    subcnt = 0;
+    /*Phase++;
+    subcnt = 0;*/
     break;
   case -3:
     //kode
-    Phase = 1;
-    subcnt = 0;
+    /*Phase++;
+    subcnt = 0;*/
     break;
   case -2:
     //kode
+    /*Phase++;
+    subcnt = 0;*/
     break;
   case -1:
     //kode
+    Phase = 1;
+    subcnt = 0;
     break;
   default:
     //kode
-    Phase = 1;
+    Phase = -4;
     subcnt = 0;
     attempts = 0;
     break;  
@@ -281,19 +295,20 @@ void keyPressed() {
     break;
   case 7:
     //kode
-    Phase++;
-    subcnt = 0;
+    /*Phase++;
+    subcnt = 0;*/
     break;
   case 8:
     //kode
-    Phase++;
-    subcnt = 0;
+    /*Phase++;
+    subcnt = 0;*/
     break;
   }
   
 }
 
 void keyReleased() {  
+  //if (Phase > 1) {
   player.releaz();
   if (keyCode == RIGHT) {
    Phase++;

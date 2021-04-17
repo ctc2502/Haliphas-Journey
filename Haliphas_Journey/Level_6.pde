@@ -30,24 +30,25 @@ void Level06() {
 
 void comp06() {
        fill(255);
-       text(pettypts + " / 3      to proceed", 50, 150);
-       image(pet, 50+100, 115, 820/15, 651/15);      
+       text(pettypts + " / 3      to proceed", 50, 250);
+       image(pet, 50+100, 215, 820/15, 651/15);      
   
        //skyer
-       sky12.display(410, 710, 5);
+       sky12.display(410, 710, 5, cloud[3]);
        sky12.regn(10000, 5000, 0);
        
-       sky13.display(1230, 1530, 5);
+       sky13.display(1230, 1530, 5, cloud[3]);
        sky13.regn(10000, 5000, 0);
        
-       sky10.display(200, width-200, 10);
+       sky10.display(200, width-200, 10, cloud[1]);
        sky10.regn(4000, 2000, 1);
        
-       sky14.display(200, width-200, 10);
+       sky14.display(200, width-200, 10, cloud[2]);
        sky14.regn(2250, 2000, 2);
        
        fill(255);
        text("Attempts:" + attempts, 50, 50);
+       text("Time: "+swt.hour()+":"+swt.minute()+":"+swt.second(), 50, 150);
        
        
        //platformen

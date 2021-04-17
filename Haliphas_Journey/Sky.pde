@@ -15,7 +15,8 @@ class Sky {
     }
 
     if (type == 0) {
-      if (lastMillis > RainOFF) { 
+      if (lastMillis > RainOFF) {
+        image(cloud[0], posSky.x-250, posSky.y-250);
         if (random(0, 1)< 0.5) {
           RainDrop rd = new RainDrop();
           rd.startRain((int)posSky.x, (int)posSky.y);
@@ -42,9 +43,9 @@ class Sky {
       }
     }
   }
-  void display(int start, int end, int velo) {
+  void display(int start, int end, int velo, PImage cloud) {
     movement(start, end, velo);
-    image(cloud0, posSky.x-250, posSky.y-250);
+    image(cloud, posSky.x-250, posSky.y-250);
   }
 
   void movement(int start, int end, int velo) {

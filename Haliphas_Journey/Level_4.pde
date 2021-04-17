@@ -15,23 +15,24 @@ void Level04() {
 
 void comp04() {
        //skyer
-       sky4.display(400, 450, 10);
+       sky4.display(400, 450, 10, cloud[3]);
        sky4.regn(10000, 5000, 0);
        
-       sky5.display(700, 750, 10);
+       sky5.display(700, 750, 10, cloud[3]);
        sky5.regn(10000, 5000, 0);
        
-       sky6.display(1000, 1050, 10);
+       sky6.display(1000, 1050, 10, cloud[3]);
        sky6.regn(10000, 5000, 0);
        
-       sky7.display(1300, 1350, 10);
+       sky7.display(1300, 1350, 10, cloud[3]);
        sky7.regn(10000, 5000, 0);
        
-       sky8.display(1600, 1650, 10);
+       sky8.display(1600, 1650, 10, cloud[3]);
        sky8.regn(10000, 5000, 0);
        
        fill(255);
        text("Attempts:" + attempts, 50, 50);
+       text("Time: "+swt.hour()+":"+swt.minute()+":"+swt.second(), 50, 150);
        
        //platformen
        fill(50);

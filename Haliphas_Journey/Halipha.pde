@@ -98,7 +98,7 @@ class Player {
         shift = false;
         
       }
-      image(Halipha, xpos, ypos); 
+      //image(Halipha, xpos, ypos); 
     }
     
     boolean Hitbox(RainDrop rd) {
